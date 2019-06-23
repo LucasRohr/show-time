@@ -1,3 +1,25 @@
 .login-container {
-    
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: var(primary);
+}
+
+.logo-title {
+
+}
+
+.login-fields {
+
+}
+
+.login-button-container {
+
+}
+
+.register-container {
+
 }
