@@ -1,5 +1,6 @@
-//import Logo from '../assets/icons/play-solid'
+import Logo from '../../assets/icons/play-solid.svg'
 import { colors } from '../../style/colors';
+import './login-scene.css'
 import React from 'react'
 
 export class LoginScene extends React.Component {
@@ -17,7 +18,7 @@ export class LoginScene extends React.Component {
 
             <div className="login-container" >
                 <div className="logo-title" >
-                    
+                    <Logo fill={colors.primary} width={'20%'} height={'20%'} />
                 </div>
 
                 <div className="login-fields" >
