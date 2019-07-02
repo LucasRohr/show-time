@@ -27,6 +27,13 @@ export class LoginScene extends React.PureComponent {
 
                 <div className="login-fields" >
 
+                    <p className="login-message" > Faça seu login </p>
+
+                    <input type="text" className="username-input"  placeholder="Nome de usuário" />
+                    <input type="password" className="password-input" placeholder="Senha" />
+
+                    <p> {this.state.userName} </p>
+
                     <div className="login-button-container" >
                     </div>
                 </div>

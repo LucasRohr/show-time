@@ -17,9 +17,10 @@ html {
 
 :root {
   --primary: #E83533;
-  --primaryLighter: #F24D4B;
-  --primaryDarker: #C12422;
+  --primary-lighter: #F24D4B;
+  --primary-darker: #C12422;
   --background: #FFFFFF;
+  --base-text: #666666;
 }
 
 code {
