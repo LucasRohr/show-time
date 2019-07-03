@@ -12,38 +12,56 @@ export class LoginScene extends React.PureComponent {
         };
     }
 
-    render() {
+    renderHeader = () => {
         return (
-            
-            <div className="login-container" >
-                <div className="logo-title" >
-                    <Logo className="logo" />
-
-                    <div className="titles" >
-                        <p className="title-show" > Show </p>
-                        <p className="title-time" > Time </p>
-                    </div>
-                </div>
-
-                <div className="login-fields" >
-
-                    <p className="login-message" > Faça seu login </p>
-
-                    <input type="text" className="username-input"  placeholder="Nome de usuário" />
-                    <input type="password" className="password-input" placeholder="Senha" />
-
-                    <p> {this.state.userName} </p>
-
-                    <div className="login-button-container" >
-                    </div>
-                </div>
-
-
-                <div className="register-container" >
-                </div>
+            <div className="login-header" >
             </div>
-
         );
     }
 
+    render() {
+        return (
+            
+            <div className="screen" >
+
+                <div className="login-header" >
+
+                    <div className="logo-title">
+                        <Logo className="logo" />
+
+                        <div className="titles" >
+                            <p className="title-show" > Show </p>
+                            <p className="title-time" > Time </p>
+                        </div>
+                    </div>
+
+                    <p className="login-welcome" > Procurando o que assistir? Bem-vindo(a) ao Show Time! </p>
+
+                </div>
+
+                <div className="login-container" >
+                        <div className="login-fields" >
+
+                            <p className="login-message" > Faça seu login </p>
+
+                            <input type="text" className="username-input"  placeholder="Nome de usuário" />
+                            <input type="password" className="password-input" placeholder="Senha" />
+
+                            <div className="login-button-container" >
+                                <button className="login-button" > Entrar </button>
+                            </div>
+                        </div>
+
+
+                        <div className="register-container" >
+
+                            <p className="register-text" > Ou registre-se <a href="#" className="register-here" > aqui </a> </p>
+
+                        </div>
+
+                    </div>
+            </div>
+        );
+    }
+    
 }
