@@ -1,6 +1,8 @@
 import { ReactComponent as Logo } from '../../assets/icons/play-solid.svg';
-import './login-scene.css'
-import React from 'react'
+import './login-scene.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import history from '../../history';
 
 export class LoginScene extends React.PureComponent {
     
@@ -12,11 +14,8 @@ export class LoginScene extends React.PureComponent {
         };
     }
 
-    renderHeader = () => {
-        return (
-            <div className="login-header" >
-            </div>
-        );
+    login() {
+        history.push("/");
     }
 
     render() {
@@ -35,14 +34,17 @@ export class LoginScene extends React.PureComponent {
                         </div>
                     </div>
 
-                    <p className="login-welcome" > Procurando o que assistir? Bem-vindo(a) ao Show Time! </p>
+                    <div className="login-welcome-container">
+                        <p className="login-welcome" > Procurando o que assistir? </p>
+                        <p className="login-welcome" > Seja bem-vindo(a)! </p>
+                    </div>
 
                 </div>
 
                 <div className="login-container" >
-                
+
                         <div className="register-container" >
-                            <p className="register-text" > Ou registre-se <a href="#" className="register-here" > aqui </a> </p>
+                            <p className="register-text" > Ou registre-se <Link to={"/registro"} className="register-here" > aqui </Link> </p>
                         </div>
 
                         <div className="login-fields" >
@@ -53,7 +55,7 @@ export class LoginScene extends React.PureComponent {
                             <input type="password" className="password-input" placeholder="Senha" />
 
                             <div className="login-button-container" >
-                                <button className="login-button" > Entrar </button>
+                                <button className="login-button" onClick={this.login} > Entrar </button>
                             </div>
                         </div>
 

@@ -45,6 +45,14 @@ a {
     align-items: center;
 }
 
+.login-welcome-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
 .login-welcome {
     font-family: Righteous;
     color: var(--background);
@@ -53,7 +61,7 @@ a {
 
 .logo {
     height: 100%;
-    width: 45%;
+    width: 40%;
     fill: var(--light-grey-background);
 }
 
