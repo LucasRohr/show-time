@@ -24,7 +24,7 @@ export class LoginScene extends React.PureComponent {
             
             <div className="screen" >
 
-                <div className="login-header" >
+                <div className="login-banner" >
 
                     <div className="logo-title">
                         <Logo className="logo" />
@@ -40,6 +40,11 @@ export class LoginScene extends React.PureComponent {
                 </div>
 
                 <div className="login-container" >
+                
+                        <div className="register-container" >
+                            <p className="register-text" > Ou registre-se <a href="#" className="register-here" > aqui </a> </p>
+                        </div>
+
                         <div className="login-fields" >
 
                             <p className="login-message" > Faça seu login </p>
@@ -52,14 +57,8 @@ export class LoginScene extends React.PureComponent {
                             </div>
                         </div>
 
+                </div>
 
-                        <div className="register-container" >
-
-                            <p className="register-text" > Ou registre-se <a href="#" className="register-here" > aqui </a> </p>
-
-                        </div>
-
-                    </div>
             </div>
         );
     }

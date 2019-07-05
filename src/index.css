@@ -16,11 +16,15 @@ html {
 }
 
 :root {
+
+  /* COLORS */
   --primary: #E83533;
   --primary-lighter: #F24D4B;
   --primary-darker: #C12422;
   --background: #FFFFFF;
+  --light-grey-background: #FAFAFA;
   --base-text: #666666;
+
 }
 
 code {
