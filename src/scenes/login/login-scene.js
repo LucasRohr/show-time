@@ -25,7 +25,7 @@ export class LoginScene extends React.PureComponent {
     }
 
     login() {
-        history.push('/registro');
+        history.push('/timeline');
     }
 
     render() {
@@ -36,11 +36,11 @@ export class LoginScene extends React.PureComponent {
                 <div className="banner" >
 
                     <div className="logo-title">
-                        <Logo className="logo" />
+                        <Logo className="logo-login" />
 
                         <div className="titles" >
-                            <p className="title-show" > Show </p>
-                            <p className="title-time" > Time </p>
+                            <p className="title-show-login" > Show </p>
+                            <p className="title-time-login" > Time </p>
                         </div>
                     </div>
 

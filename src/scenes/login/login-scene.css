@@ -44,21 +44,21 @@ a {
     align-items: center;
 }
 
-    .login-welcome-container {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
+.login-welcome-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
 
-    .login-welcome {
-        font-family: Righteous;
-        color: var(--background);
-        font-size: 1.8em;
-    }
+.login-welcome {
+    font-family: Righteous;
+    color: var(--background);
+    font-size: 1.8em;
+}
 
-.logo {
+.logo-login {
     height: 100%;
     width: 40%;
     fill: var(--light-grey-background);
@@ -72,14 +72,14 @@ a {
     align-items: center;
 }
 
-.title-show {
-    font-size: 2.5em;
+.title-show-login {
+    font-size: 1.8em;
     font-family: Righteous;
     color: var(--light-grey-background);
 }
 
-.title-time {
-    font-size: 2.5em;
+.title-time-login {
+    font-size: 1.8em;
     margin-left: 50%;
     font-family: Righteous;
     color: var(--light-grey-background);

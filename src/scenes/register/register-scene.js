@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Input } from '../../components/input/input.component';
 import { ReactComponent as Logo } from '../../assets/icons/play-solid.svg';
+import history from '../../history';
 import { ButtonCommon } from '../../components/button-common/button-common.component';
 
 export class RegisterScene extends React.PureComponent {
@@ -27,6 +28,10 @@ export class RegisterScene extends React.PureComponent {
         this.setState({ dateInputType: 'text' });
     }
 
+    register = () => {
+        history.push("/timeline");
+    }
+
     render() {
         return (
             <div className="screen">
@@ -34,10 +39,10 @@ export class RegisterScene extends React.PureComponent {
                 <div className="banner" >
                     <div className="logo-title">
 
-                        <Logo className="logo" />
+                        <Logo className="logo-register" />
                         <div className="titles" >
-                            <p className="title-show" > Show </p>
-                            <p className="title-time" > Time </p>
+                            <p className="title-show-register" > Show </p>
+                            <p className="title-time-register" > Time </p>
                         </div>
 
                     </div>
