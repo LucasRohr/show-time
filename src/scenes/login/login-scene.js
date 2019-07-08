@@ -3,7 +3,8 @@ import './login-scene.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import history from '../../history';
-import { InputComponent } from '../../components/input/input.component';
+import { Input } from '../../components/input/input.component';
+import { ButtonCommon } from '../../components/button-common/button-common.component';
 
 export class LoginScene extends React.PureComponent {
     
@@ -60,14 +61,14 @@ export class LoginScene extends React.PureComponent {
 
                             <p className="login-message" > Faça seu login </p>
 
-                            <InputComponent inputType="text"
+                            <Input inputType="text"
                                 inputWidth="50%"
                                 inputHeight="8%"
                                 inputPlaceholder="Nome de usuário"
                                 setInput={this.setUsername}
                             />
 
-                            <InputComponent inputType="password"
+                            <Input inputType="password"
                                 inputWidth="50%"
                                 inputHeight="8%"
                                 inputPlaceholder="Senha"
@@ -75,7 +76,7 @@ export class LoginScene extends React.PureComponent {
                             />
 
                             <div className="login-button-container" >
-                                <button className="login-button" onClick={this.login} > Entrar </button>
+                                <ButtonCommon buttonTitle="Entrar" onButtonClick={this.login} />
                             </div>
                         </div>
 

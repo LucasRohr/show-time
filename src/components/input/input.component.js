@@ -1,14 +1,10 @@
 import React from 'react';
 import './input.component.css';
 
-export class InputComponent extends React.PureComponent {
+export class Input extends React.PureComponent {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            inputText: ""
-        };
     }
 
     render() {

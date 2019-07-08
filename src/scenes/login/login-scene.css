@@ -100,26 +100,6 @@ a {
     color: var(--primary);
 }
 
-.username-input {
-    height: 8%;
-    width: 50%;
-    border-radius: 10px;
-    border: 1.5px solid var(--primary-lighter);
-    padding: 1%;
-    font-size: 1.2em;
-    color: var(--primary);
-}
-
-.password-input {
-    height: 8%;
-    width: 50%;
-    border-radius: 10px;
-    padding: 1%;
-    border: 1.5px solid var(--primary-lighter);
-    font-size: 1.2em;
-    color: var(--primary);
-}
-
 .login-button-container {
     width: 50%;
     height: 15%;
@@ -127,18 +107,6 @@ a {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-}
-
-.login-button {
-    width: 30%;
-    height: 100%;
-    background: var(--primary);
-    color: var(--background);
-    border-radius: 5px;
-    border: none;
-    font-family: Righteous;
-    font-size: 1.5em;
-    cursor: pointer;
 }
 
 .register-container {
