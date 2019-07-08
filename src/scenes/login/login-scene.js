@@ -3,6 +3,7 @@ import './login-scene.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import history from '../../history';
+import { InputComponent } from '../../components/input/input.component';
 
 export class LoginScene extends React.PureComponent {
     
@@ -14,8 +15,16 @@ export class LoginScene extends React.PureComponent {
         };
     }
 
+    setUsername = (e) => {
+        this.setState({ userName: e.target.value });
+    }
+
+    setPassword = (e) => {
+        this.setState({ userPassword: e.target.value });
+    }
+
     login() {
-        history.push("/");
+        history.push('/registro');
     }
 
     render() {
@@ -23,7 +32,7 @@ export class LoginScene extends React.PureComponent {
             
             <div className="screen" >
 
-                <div className="login-banner" >
+                <div className="banner" >
 
                     <div className="logo-title">
                         <Logo className="logo" />
@@ -51,8 +60,19 @@ export class LoginScene extends React.PureComponent {
 
                             <p className="login-message" > Faça seu login </p>
 
-                            <input type="text" className="username-input"  placeholder="Nome de usuário" />
-                            <input type="password" className="password-input" placeholder="Senha" />
+                            <InputComponent inputType="text"
+                                inputWidth="50%"
+                                inputHeight="8%"
+                                inputPlaceholder="Nome de usuário"
+                                setInput={this.setUsername}
+                            />
+
+                            <InputComponent inputType="password"
+                                inputWidth="50%"
+                                inputHeight="8%"
+                                inputPlaceholder="Senha"
+                                setInput={this.setPassword}
+                            />
 
                             <div className="login-button-container" >
                                 <button className="login-button" onClick={this.login} > Entrar </button>
