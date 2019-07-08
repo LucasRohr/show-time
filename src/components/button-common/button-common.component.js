@@ -9,7 +9,13 @@ export class ButtonCommon extends React.PureComponent {
 
     render() {
         return(
-            <button className="button" onClick={this.props.onButtonClick} > { this.props.buttonTitle } </button>
+            <button className="button" style={{ padding: this.props.buttonPadding,
+                width: this.props.buttonWidth,
+                height: this.props.buttonHeight
+             }}
+            onClick={this.props.onButtonClick}>
+             { this.props.buttonTitle }
+            </button>
         );
     }
 

@@ -76,7 +76,7 @@ export class LoginScene extends React.PureComponent {
                             />
 
                             <div className="login-button-container" >
-                                <ButtonCommon buttonTitle="Entrar" onButtonClick={this.login} />
+                                <ButtonCommon buttonTitle="Entrar" buttonPadding="3%" onButtonClick={this.login} />
                             </div>
                         </div>
 

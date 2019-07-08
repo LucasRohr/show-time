@@ -14,6 +14,8 @@ export class Input extends React.PureComponent {
                 style={{height: this.props.inputHeight, width: this.props.inputWidth}}
                 placeholder={this.props.inputPlaceholder}
                 onChange={ this.props.setInput }
+                onFocus={this.props.onFocus}
+                onBlur={this.props.onBlur}
              />
         );
     }
