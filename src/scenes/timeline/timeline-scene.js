@@ -47,13 +47,13 @@ export class TimelineScene extends React.PureComponent {
         return(
             <div className="screen" >
 
-                <div className="banner" >
+                <div className="banner-timeline" >
 
-                    <div className="logo-title" onClick={ this.reloadTimeline } >
-                        <Logo className="logo" />
-                        <div className="titles" >
-                            <p className="title-show" > Show </p>
-                            <p className="title-time" > Time </p>
+                    <div className="logo-title-timeline" onClick={ this.reloadTimeline } >
+                        <Logo className="logo-timeline" />
+                        <div className="titles-timeline" >
+                            <p className="title-show-timeline" > Show </p>
+                            <p className="title-time-timeline" > Time </p>
                         </div>
                     </div>
 
