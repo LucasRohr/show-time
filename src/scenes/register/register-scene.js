@@ -97,7 +97,9 @@ export class RegisterScene extends React.PureComponent {
                     <p> {this.dateInputType} </p>
 
                     <div className="register-button-container" >
-                        <ButtonCommon buttonTitle="Registar" buttonWidth="35%" buttonPadding="2%" onButtonClick={this.register} />
+                        <ButtonCommon buttonWidth="35%" buttonPadding="2%" onButtonClick={this.register}>
+                            Registrar
+                        </ButtonCommon>
                     </div>
 
                     <div className="login-text-container" >
