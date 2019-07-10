@@ -14,7 +14,7 @@ export class ButtonCommon extends React.PureComponent {
                 height: this.props.buttonHeight
              }}
             onClick={this.props.onButtonClick}>
-             { this.props.buttonTitle }
+             { this.props.children }
             </button>
         );
     }
