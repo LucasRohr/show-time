@@ -59,7 +59,7 @@ a {
 }
 
 .logo-login {
-    height: 100%;
+    height: 80%;
     width: 40%;
     fill: var(--light-grey-background);
 }

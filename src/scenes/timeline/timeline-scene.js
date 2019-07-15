@@ -7,6 +7,8 @@ import { ButtonCommon } from '../../components/button-common/button-common.compo
 import { ReactComponent as Plus } from '../../assets/icons/plus-solid.svg';
 import { ReactComponent as People } from '../../assets/icons/user-friends-solid.svg';
 import { ReactComponent as Profile } from '../../assets/icons/user-circle-solid.svg';
+import { publicationsMock } from '../../mocks/pubs.mocks';
+import { Publication } from '../../components/publication/publication.component';
 
 export class TimelineScene extends React.PureComponent {
 
@@ -15,7 +17,7 @@ export class TimelineScene extends React.PureComponent {
 
         this.state = {
             currentUser: { username: "Lusquinha crey crey" },
-            publications: []
+            publications: publicationsMock
         }
     }
 
@@ -47,13 +49,13 @@ export class TimelineScene extends React.PureComponent {
         return(
             <div className="screen" >
 
-                <div className="banner" >
+                <div className="banner-timeline" >
 
-                    <div className="logo-title" onClick={ this.reloadTimeline } >
-                        <Logo className="logo" />
-                        <div className="titles" >
-                            <p className="title-show" > Show </p>
-                            <p className="title-time" > Time </p>
+                    <div className="logo-title-timeline" onClick={ this.reloadTimeline } >
+                        <Logo className="logo-timeline" />
+                        <div className="titles-timeline" >
+                            <p className="title-show-timeline" > Show </p>
+                            <p className="title-time-timeline" > Time </p>
                         </div>
                     </div>
 
@@ -95,25 +97,34 @@ export class TimelineScene extends React.PureComponent {
                         this.state.publications.length == 0 ?
                             this.renderNoPublicationsMessage()
                         :
-                            <div className="timeline-publications" >
+
+                        <div className="timeline-publications" >
+
+                            {
+                                this.state.publications.slice(0).reverse().map(
+                                    (publication) => {
+                                        
+                                        return(
+                                            <Publication
+                                                userAvatar={publication.userAvatar}
+                                                username={publication.username}
+                                                datetime={publication.datetime}
+                                                title={publication.title}
+                                                isMovie={publication.isMovie}
+                                                showName={publication.showName}
+                                                hasInNetflix={publication.hasInNetflix}
+                                                grade={publication.grade}
+                                                image={publication.image}
+                                                review={publication.review}
+                                            />
+                                        );
+                                    }
+                                )
+                            }
+
+                        </div>
         
-                                {
-        
-                                    this.state.publications.length == 0 ?
-                                        this.renderNoPublicationsMessage()
-                                    :
-        
-                                        this.state.publications.map(
-                                            (publication) => {
-                                                return(
-                                                    // PUBLICATION COMPONENT WITH PROPS BEING PASSED TO IT 
-                                                    <div></div>
-                                                );
-                                            }
-                                        )
-                                }
-        
-                            </div>
+                            
                     }
                     
                 </div>

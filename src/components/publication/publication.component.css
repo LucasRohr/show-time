@@ -1,0 +1,172 @@
+.publication-container {
+    width: 900px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--background);
+    border: 0.5px solid var(--primary-lighter);
+    padding: 0.3%;
+    border-radius: 5px;
+    margin-bottom: 5%;
+}
+
+.publication-base-info {
+    width: 95%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    flex-wrap: wrap;
+}
+
+.user-pub-info {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.avatar-icon-pub {
+    width: 20%;
+    height: 50%;
+    fill: var(--primary);
+}
+
+.username-datetime {
+    width: auto;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.username-pub {
+    font-family: Righteous;
+    color: var(--primary);
+    font-size: 1em;
+}
+
+.datetime-pub {
+    font-family: Righteous;
+    color: var(--black);
+    font-size: 1em;
+}
+
+.title-pub {
+    font-family: Righteous;
+    color: var(--primary);
+    font-size: 1.5em;
+}
+
+.show-info {
+    width: 95%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.show-base {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.show-type-name-container {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.show-type {
+    font-family: Righteous;
+    color: var(--black);
+    font-size: 1.2em;
+}
+
+.show-name {
+    font-family: Righteous;
+    color: var(--primary);
+    font-size: 1.2em;
+}
+
+.netflix-show {
+    font-family: Righteous;
+    color: var(--primary);
+    font-size: 1.2em;
+}
+
+.grade-container {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grade-note-container {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grade-label-pub {
+    font-family: Righteous;
+    color: var(--black);
+    font-size: 1.3em;
+}
+
+.grade-pub {
+    font-family: Righteous;
+    color: var(--primary);
+    font-size: 1.8em;
+}
+
+.logo-pub-grade {
+    width: 50%;
+    height: 50%;
+    fill: var(--primary);
+}
+
+.pub-image {
+    width: 90%;
+    margin: 3%;
+    align-self: center;
+    border-radius: 5px;
+}
+
+.review-container {
+    width: 95%;
+    height: auto;
+    padding: 2%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-review {
+    font-family: Righteous;
+    color: var(--black);
+    font-size: 1.2em;
+}
