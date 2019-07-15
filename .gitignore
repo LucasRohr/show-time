@@ -8,6 +8,7 @@
 
 # testing
 /coverage
+/sample-assets
 
 # production
 /build

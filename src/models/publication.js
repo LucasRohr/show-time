@@ -4,7 +4,7 @@ export class Publication {
         userAvatar,
         datetime,
         title,
-        showType,
+        isMovie,
         showName,
         grade,
         hasInNetflix,
@@ -14,7 +14,7 @@ export class Publication {
             this.userAvatar = userAvatar;
             this.datetime = datetime;
             this.title = title;
-            this.showType = showType;
+            this.isMovie = isMovie;
             this.showName = showName;
             this.grade = grade;
             this.hasInNetflix = hasInNetflix;
