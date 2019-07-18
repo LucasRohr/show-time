@@ -9,6 +9,7 @@ import { ReactComponent as People } from '../../assets/icons/user-friends-solid.
 import { ReactComponent as Profile } from '../../assets/icons/user-circle-solid.svg';
 import { publicationsMock } from '../../mocks/pubs.mocks';
 import { Publication } from '../../components/publication/publication.component';
+import { CreatePubModal } from '../../components/create-pub-modal/create-pub-modal.component';
 
 export class TimelineScene extends React.PureComponent {
 
@@ -17,12 +18,19 @@ export class TimelineScene extends React.PureComponent {
 
         this.state = {
             currentUser: { username: "Lusquinha crey crey" },
-            publications: publicationsMock
+            publications: publicationsMock,
+            isPubModalOpen: false
         }
     }
 
     reloadTimeline = () => {
         history.push("/timeline");
+    }
+
+    handlePubModal = () => {
+        this.setState(prevState => ({ 
+            isPubModalOpen: !prevState.isPubModalOpen
+        }));
     }
 
     renderNoPublicationsMessage = () => {
@@ -64,6 +72,7 @@ export class TimelineScene extends React.PureComponent {
                         <ButtonCommon
                             buttonWidth="30%"
                             buttonHeight="10%"
+                            onButtonClick={this.handlePubModal}
                         >
                             <div className="button-publication" >
                                 <p className="create-publication" > Criar publicação </p>
@@ -87,10 +96,11 @@ export class TimelineScene extends React.PureComponent {
 
                 </div>
 
-                <div className="timeline-body" >
+                <div className="timeline-body" id="timeline-body" >
 
                     <div className="welcome-container" >
-                        <p className="welcome-message" > Bem-vindo(a) ao Show Time <p className="welcome-message-username" > { this.state.currentUser.username } </p> </p>
+                        <p className="welcome-message" > Bem-vindo(a) ao Show Time </p>
+                        <p className="welcome-message-username" > { this.state.currentUser.username } </p>
                     </div>
 
                     {
@@ -102,7 +112,7 @@ export class TimelineScene extends React.PureComponent {
 
                             {
                                 this.state.publications.slice(0).reverse().map(
-                                    (publication) => {
+                                    (publication, key) => {
                                         
                                         return(
                                             <Publication
@@ -116,6 +126,7 @@ export class TimelineScene extends React.PureComponent {
                                                 grade={publication.grade}
                                                 image={publication.image}
                                                 review={publication.review}
+                                                key={key}
                                             />
                                         );
                                     }
@@ -133,6 +144,10 @@ export class TimelineScene extends React.PureComponent {
                 <button className="floating-button" > 
                     <Plane className="recommendation-icon" />
                 </button>
+
+                <div>
+                    <CreatePubModal open={this.state.isPubModalOpen} onClose={this.handlePubModal} />
+                </div>
 
             </div>
         );
