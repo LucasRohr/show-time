@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import { LoginScene } from './scenes/login/login-scene';
+import { LoginScene } from './scenes/login/login-scene.jsx';
 import { Router, Route, Redirect } from 'react-router-dom';
 import history from './history';
-import { RegisterScene } from './scenes/register/register-scene';
-import { TimelineScene } from './scenes/timeline/timeline-scene';
+import { RegisterScene } from './scenes/register/register-scene.jsx';
+import { TimelineScene } from './scenes/timeline/timeline-scene.jsx';
 
 function App() {
   return (

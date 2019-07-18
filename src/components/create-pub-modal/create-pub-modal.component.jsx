@@ -2,18 +2,19 @@ import React from 'react';
 import './create-pub-modal.component.css';
 import Modal from '@material-ui/core/Modal';
 import Slide from '@material-ui/core/Slide';
-import { Input } from '../input/input.component';
+import { Input } from '../input/input.component.jsx';
 import StarRatings from 'react-star-ratings';
 import { colors } from '../../style/colors';
 import { ReactComponent as AddImage } from '../../assets/icons/image-plus.svg';
-import { ButtonCommon } from '../../components/button-common/button-common.component';
+import { ButtonCommon } from '../button-common/button-common.component.jsx';
+import { Radio } from '../radio/radio.component';
 
 export class CreatePubModal extends React.PureComponent {
 
     constructor(props) {
         super(props);
         this.state = {
-            isMovie: false,
+            isShow: true,
             hasInNetflix: true,
             showName: '',
             title: '',
@@ -27,6 +28,30 @@ export class CreatePubModal extends React.PureComponent {
         this.setState({ grade: rating })
     }
 
+    handleSelectedFirstType = () => {
+        if(!this.state.isShow) {
+            this.setState({ isShow: true });
+        }
+    }
+
+    handleSelectedSecondType = () => {
+        if(this.state.isShow) {
+            this.setState({ isShow: false });
+        }
+    }
+
+    handleSelectedFirstNetflix = () => {
+        if(!this.state.hasInNetflix) {
+            this.setState({ hasInNetflix: true });
+        }
+    }
+
+    handleSelectedSecondNetflix = () => {
+        if(this.state.hasInNetflix) {
+            this.setState({ hasInNetflix: false });
+        }
+    }
+
     render() {
         return (
             <Modal className="pub-modal" open={this.props.open} onClose={this.props.onClose} >
@@ -38,10 +63,28 @@ export class CreatePubModal extends React.PureComponent {
 
                             <div className="type" >
                                 <p className="type-label" > O que você vai avaliar? </p>
+
+                                <Radio
+                                    firstRadioText="Série"
+                                    secondRadioText="Filme"
+                                    onFirstClick={this.handleSelectedFirstType}
+                                    onSecondClick={this.handleSelectedSecondType}
+                                    isFirstSelected={this.state.isShow}
+                                    radioHeight="70%"
+                                    radioWidth="100%"
+                                />
                             </div>
 
                             <div className="netflix" >
                                 <p className="netflix-label" > Tem na Netflix? </p>
+
+                                <Radio
+                                    firstRadioText="Sim!"
+                                    secondRadioText="Não"
+                                    onFirstClick={this.handleSelectedFirstNetflix}
+                                    onSecondClick={this.handleSelectedSecondNetflix}
+                                    isFirstSelected={this.state.hasInNetflix}
+                                />
                             </div>
 
                         </div>

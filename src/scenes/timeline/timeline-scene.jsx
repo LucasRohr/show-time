@@ -3,13 +3,13 @@ import './timeline-scene.css';
 import { ReactComponent as Logo } from '../../assets/icons/play-solid.svg';
 import { ReactComponent as Plane } from '../../assets/icons/paper-plane-regular.svg';
 import history from '../../history';
-import { ButtonCommon } from '../../components/button-common/button-common.component';
+import { ButtonCommon } from '../../components/button-common/button-common.component.jsx';
 import { ReactComponent as Plus } from '../../assets/icons/plus-solid.svg';
 import { ReactComponent as People } from '../../assets/icons/user-friends-solid.svg';
 import { ReactComponent as Profile } from '../../assets/icons/user-circle-solid.svg';
 import { publicationsMock } from '../../mocks/pubs.mocks';
-import { Publication } from '../../components/publication/publication.component';
-import { CreatePubModal } from '../../components/create-pub-modal/create-pub-modal.component';
+import { Publication } from '../../components/publication/publication.component.jsx';
+import { CreatePubModal } from '../../components/create-pub-modal/create-pub-modal.component.jsx';
 
 export class TimelineScene extends React.PureComponent {
 
