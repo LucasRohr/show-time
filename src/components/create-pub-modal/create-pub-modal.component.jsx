@@ -57,12 +57,13 @@ export class CreatePubModal extends React.PureComponent {
             <Modal className="pub-modal" open={this.props.open} onClose={this.props.onClose} >
                 <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit>
                     <div className="modal-content" >
+                        
                         <p className="modal-title" > Avalie uma série ou filme! </p>
                         
                         <div className="type-netflix" >
 
-                            <div className="type" >
-                                <p className="type-label" > O que você vai avaliar? </p>
+                            <div className="radio-container" >
+                                <p className="radio-label" > O que você vai avaliar? </p>
 
                                 <Radio
                                     firstRadioText="Série"
@@ -70,13 +71,13 @@ export class CreatePubModal extends React.PureComponent {
                                     onFirstClick={this.handleSelectedFirstType}
                                     onSecondClick={this.handleSelectedSecondType}
                                     isFirstSelected={this.state.isShow}
-                                    radioHeight="70%"
-                                    radioWidth="100%"
+                                    radioHeight="50%"
+                                    radioWidth="70%"
                                 />
                             </div>
 
-                            <div className="netflix" >
-                                <p className="netflix-label" > Tem na Netflix? </p>
+                            <div className="radio-container" >
+                                <p className="radio-label" > Tem na Netflix? </p>
 
                                 <Radio
                                     firstRadioText="Sim!"
@@ -84,6 +85,8 @@ export class CreatePubModal extends React.PureComponent {
                                     onFirstClick={this.handleSelectedFirstNetflix}
                                     onSecondClick={this.handleSelectedSecondNetflix}
                                     isFirstSelected={this.state.hasInNetflix}
+                                    radioHeight="50%"
+                                    radioWidth="70%"
                                 />
                             </div>
 
@@ -93,14 +96,14 @@ export class CreatePubModal extends React.PureComponent {
                             <Input
                                 inputType="text"
                                 inputWidth="90%"
-                                inputHeight="8%"
+                                inputHeight="25%"
                                 inputPlaceholder="Nome da série"
                             />
 
                             <Input
                                 inputType="text"
                                 inputWidth="90%"
-                                inputHeight="8%"
+                                inputHeight="25%"
                                 inputPlaceholder="Título da publicação"
                             />
                         </div>
@@ -120,7 +123,7 @@ export class CreatePubModal extends React.PureComponent {
                                 />
                             </div>
 
-                            <textarea className="review" />
+                            <textarea className="review" placeholder="O que você achou?" />
 
                         </div>
 
@@ -132,7 +135,7 @@ export class CreatePubModal extends React.PureComponent {
                             
                             <ButtonCommon buttonWidth="30%"
                                 buttonHeight="60%">
-                                Enviar publicação
+                                Publicar
                             </ButtonCommon>
 
                         </div>
