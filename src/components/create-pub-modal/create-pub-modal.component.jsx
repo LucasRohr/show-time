@@ -127,14 +127,15 @@ export class CreatePubModal extends React.PureComponent {
 
                         </div>
 
-                        <div className="image-sends" >
+                        <div className="image-send" >
 
                             <button className="pub-image-button" >
                                 <AddImage className="add-image-icon" />
                             </button>
                             
-                            <ButtonCommon buttonWidth="30%"
-                                buttonHeight="60%">
+                            <ButtonCommon buttonWidth="25%"
+                                buttonHeight="60%"
+                                buttonPadding="0%">
                                 Publicar
                             </ButtonCommon>
 
