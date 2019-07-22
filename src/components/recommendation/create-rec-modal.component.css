@@ -1,0 +1,150 @@
+.rec-modal {
+    width: 35%;
+    height: 80%;
+}
+
+.modal-content {
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    position: absolute;
+    left: 90%;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--background);
+    padding: 3%;
+    border-radius: 5px;
+    outline: none;
+}
+
+.modal-title {
+    font-family: Righteous;
+    color: var(--primary);
+    font-size: 1.5em;
+}
+
+.recipient-container {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.recipient-label {
+    font-family: Righteous;
+    color: var(--primary-lighter);
+    font-size: 1.2em;
+}
+
+.recipient {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.friend-avatar {
+    width: 50%;
+    height: 90%;
+    transform: scale(0.2, 0.2);
+    border-radius: 120px;
+}
+
+.friend-avatar-icon {
+    width: 30%;
+    height: 90%;
+    transform: scale(0.8, 0.8);
+    fill: var(--primary);
+}
+
+.friend-username {
+    font-family: Righteous;
+    color: var(--black);
+    font-size: 1.3em;
+}
+
+.search-friend-button-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.search-friend-button-title {
+    font-family: Righteous;
+    color: var(--background);
+    font-size: 0.8em;
+}
+
+.friends-icon {
+    width: 20%;
+    height: 40%;
+    fill: var(--background);
+    transform: scale(0.8, 0.8);
+}
+
+.type-netflix {
+    width: 100%;
+    height: 12%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.radio-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.radio-label {
+    font-family: Asap;
+    color: var(--black);
+    font-size: 1.2em;
+}
+
+.show-title {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.review {
+    width: 90%;
+    height: 20%;
+    border: 0.5px solid var(--primary-lighter);
+    border-radius: 5px;
+    color: var(--black);
+    resize: none;
+    overflow: auto;
+    font-family: Asap;
+    font-size: 1em;
+    padding: 1%;
+}
+
+.review:focus {
+    outline: none;
+}
+
+.rec-button-container {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}

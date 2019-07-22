@@ -1,6 +1,9 @@
 export class Publication {
 
-    constructor(username,
+    constructor(
+        id,
+        userId,
+        username,
         userAvatar,
         datetime,
         title,
@@ -8,8 +11,10 @@ export class Publication {
         showName,
         grade,
         hasInNetflix,
-        image,
+        image,  
         review) {
+            this.id = id;
+            this.userId = userId;
             this.username = username;
             this.userAvatar = userAvatar;
             this.datetime = datetime;
