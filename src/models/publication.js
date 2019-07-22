@@ -11,8 +11,10 @@ export class Publication {
         showName,
         grade,
         hasInNetflix,
-        image,
+        image,  
         review) {
+            this.id = id;
+            this.userId = userId;
             this.username = username;
             this.userAvatar = userAvatar;
             this.datetime = datetime;

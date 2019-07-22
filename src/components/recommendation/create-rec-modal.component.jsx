@@ -2,6 +2,10 @@ import React from 'react';
 import './create-rec-modal.component.css';
 import Modal from '@material-ui/core/Modal';
 import Slide from '@material-ui/core/Slide';
+import Recommendation from '../../models/recommendation';
+import { ButtonCommon } from '../../components/button-common/button-common.component.jsx';
+import { ReactComponent as FriendsIcon } from '../../assets/icons/user-friends-solid.svg';
+import { ReactComponent as UserIcon } from '../../assets/icons/user-circle-solid.svg';
 
 export class CreateRecModal extends React.PureComponent {
 
@@ -53,14 +57,47 @@ export class CreateRecModal extends React.PureComponent {
         this.setState({ review: e.target.value });
     }
 
+    recommend = () => {
+        let recommendation = new Recommendation(
+            1, 1, "lusca", "", this.state.friend.id, this.state.friend.username, this.state.friend.avatar, new Date(), this.state.title, this.state.isShow, this.state.showName,
+            this.state.hasInNetflix, this.state.review
+        );
+
+        console.log(recommendation);
+    }
+
     render() {
         return (
             <Modal className="rec-modal" open={this.props.open} onClose={this.props.onClose} >
                 <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit>
 
                     <div className="modal-content" >
+
+                        <div className="recipient-container" >
+                            <p className="recipient-label" > Para </p>
+
+                            {
+                                this.state.friend ?
+                                    <div className="recipient" >
+                                        {
+                                            this.state.friend.avatar ?
+                                                <img className="friend-avatar" src={ this.state.friend.avatar } />
+                                            :
+                                                <UserIcon className="friend-avatar-icon" />
+                                        }
+
+                                        <p className="friend-username" > { this.state.friend.username } </p>
+                                    </div>
+                                :
+                                    <ButtonCommon>
+                                        <p className="search-friend-button-title" > Procurar amigo </p>
+                                        <FriendsIcon className="friends-icon" />
+                                    </ButtonCommon>
+                            }
+
+                        </div>
                             
-                        <p className="modal-title" > Avalie uma série ou filme! </p>
+                        <p className="modal-title" > Recomende uma série ou filme! </p>
                         
                         <div className="type-netflix" >
 
@@ -76,6 +113,7 @@ export class CreateRecModal extends React.PureComponent {
                                     radioHeight="50%"
                                     radioWidth="70%"
                                 />
+
                             </div>
 
                             <div className="radio-container" >

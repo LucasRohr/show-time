@@ -97,11 +97,10 @@ export class CreatePubModal extends React.PureComponent {
 
     publish = () => {
         let publication = new Publication(
+            1, 1,
             "lusca", "", new Date(), this.state.title, this.state.isShow, this.state.showName,
             this.state.grade, this.state.hasInNetflix, this.state.image, this.state.review
         );
-
-        console.log(publication);
     }
 
     render() {
