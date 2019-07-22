@@ -22,6 +22,7 @@ export class CreatePubModal extends React.PureComponent {
             grade: 0,
             review: '',
             image: null,
+            isImagePreviewOpen: false
         };
     }
 
@@ -68,11 +69,16 @@ export class CreatePubModal extends React.PureComponent {
         if (FileReader && files && files.length) {
             var fr = new FileReader();
             fr.onloadend = function (loadEvent) {
-                document.getElementById("create-pub-image-preview").src = loadEvent.target.result;
                 that.setState({ image: loadEvent.target.result });
             }
             fr.readAsDataURL(files[0]);
         }
+    }
+
+    handleImagePreviewModal = () => {
+        this.setState(prevState => ({ 
+            isImagePreviewOpen: !prevState.isImagePreviewOpen
+        }));
     }
 
     render() {
@@ -166,10 +172,28 @@ export class CreatePubModal extends React.PureComponent {
                                 }
                             </button>
 
-                            <img id="create-pub-image-preview" className="image-preview"
-                                src={this.state.image}
-                            />
-                            <p>{this.state.image ? console.log(this.state.image) : 'nope'}</p>
+                            {
+                                this.state.image ?
+                                    <ButtonCommon buttonWidth="30%"
+                                        buttonHeight="60%"
+                                        buttonPadding="0%"
+                                        onClick={ this.handleImagePreviewModal }>
+                                            Ver imagem
+                                    </ButtonCommon>
+                                :
+                                    <div></div>
+
+                            }
+
+                            <Modal open={this.state.isImagePreviewOpen} onClose={this.handleImagePreviewModal}>
+                                <Slide direction="up" in={this.state.isImagePreviewOpen} mountOnEnter unmountOnExit>
+                                    <div className="pub-modal-image-preview">
+                                        <img id="create-pub-image-preview" className="image-preview"
+                                            src={this.state.image}
+                                        />
+                                    </div>
+                                </Slide>
+                            </Modal>
                             
                             <ButtonCommon buttonWidth="25%"
                                 buttonHeight="60%"
