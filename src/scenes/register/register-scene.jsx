@@ -1,10 +1,10 @@
 import './register-scene.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Input } from '../../components/input/input.component';
+import { Input } from '../../components/input/input.component.jsx';
 import { ReactComponent as Logo } from '../../assets/icons/play-solid.svg';
 import history from '../../history';
-import { ButtonCommon } from '../../components/button-common/button-common.component';
+import { ButtonCommon } from '../../components/button-common/button-common.component.jsx';
 
 export class RegisterScene extends React.PureComponent {
 
