@@ -1,6 +1,9 @@
 export class Publication {
 
-    constructor(username,
+    constructor(
+        id,
+        userId,
+        username,
         userAvatar,
         datetime,
         title,
