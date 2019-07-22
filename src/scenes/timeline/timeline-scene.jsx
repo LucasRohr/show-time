@@ -10,6 +10,7 @@ import { ReactComponent as Profile } from '../../assets/icons/user-circle-solid.
 import { publicationsMock } from '../../mocks/pubs.mocks';
 import { Publication } from '../../components/publication/publication.component.jsx';
 import { CreatePubModal } from '../../components/create-pub-modal/create-pub-modal.component.jsx';
+import { CreateRecModal } from '../../components/recommendation/create-rec-modal.component';
 
 export class TimelineScene extends React.PureComponent {
 
@@ -19,7 +20,8 @@ export class TimelineScene extends React.PureComponent {
         this.state = {
             currentUser: { username: "Lusquinha crey crey" },
             publications: publicationsMock,
-            isPubModalOpen: false
+            isPubModalOpen: false,
+            isRecModalOpen: false
         }
     }
 
@@ -30,6 +32,12 @@ export class TimelineScene extends React.PureComponent {
     handlePubModal = () => {
         this.setState(prevState => ({ 
             isPubModalOpen: !prevState.isPubModalOpen
+        }));
+    }
+
+    handleRecModal = () => {
+        this.setState(prevState => ({ 
+            isRecModalOpen: !prevState.isRecModalOpen
         }));
     }
 
@@ -141,13 +149,17 @@ export class TimelineScene extends React.PureComponent {
                 </div>
 
 
-                <button className="floating-button" > 
+                <button className="floating-button" onClick={ this.handleRecModal } > 
                     <Plane className="recommendation-icon" />
                 </button>
 
                 <div>
                     <CreatePubModal open={this.state.isPubModalOpen}
                         onClose={this.handlePubModal}
+                    />
+
+                    <CreateRecModal open={this.state.isRecModalOpen}
+                        onClose={this.handleRecModal}
                     />
                 </div>
 

@@ -2,10 +2,13 @@ import React from 'react';
 import './create-rec-modal.component.css';
 import Modal from '@material-ui/core/Modal';
 import Slide from '@material-ui/core/Slide';
-import Recommendation from '../../models/recommendation';
+import { Radio } from '../radio/radio.component';
+import { Input } from '../input/input.component.jsx';
+import { Recommendation } from '../../models/recommendation';
 import { ButtonCommon } from '../../components/button-common/button-common.component.jsx';
 import { ReactComponent as FriendsIcon } from '../../assets/icons/user-friends-solid.svg';
 import { ReactComponent as UserIcon } from '../../assets/icons/user-circle-solid.svg';
+import { User } from '../../models/user';
 
 export class CreateRecModal extends React.PureComponent {
 
@@ -73,6 +76,8 @@ export class CreateRecModal extends React.PureComponent {
 
                     <div className="modal-content" >
 
+                        <p className="modal-title" > Recomende uma série ou filme! </p>
+
                         <div className="recipient-container" >
                             <p className="recipient-label" > Para </p>
 
@@ -89,15 +94,17 @@ export class CreateRecModal extends React.PureComponent {
                                         <p className="friend-username" > { this.state.friend.username } </p>
                                     </div>
                                 :
-                                    <ButtonCommon>
-                                        <p className="search-friend-button-title" > Procurar amigo </p>
-                                        <FriendsIcon className="friends-icon" />
+                                    <ButtonCommon buttonWidth="40%"
+                                        buttonHeight="45%"
+                                        buttonPadding="0%">
+                                        <div className="search-friend-button-content-container" >
+                                            <p className="search-friend-button-title" > Procurar amigo </p>
+                                            <FriendsIcon className="friends-icon" />
+                                        </div>
                                     </ButtonCommon>
                             }
 
                         </div>
-                            
-                        <p className="modal-title" > Recomende uma série ou filme! </p>
                         
                         <div className="type-netflix" >
 
@@ -157,7 +164,7 @@ export class CreateRecModal extends React.PureComponent {
 
                         <div className="rec-button-container" >
                             <ButtonCommon buttonWidth="30%"
-                                buttonHeight="60%"
+                                buttonHeight="70%"
                                 buttonPadding="0%"
                                 onButtonClick={this.recommend}
                                 >

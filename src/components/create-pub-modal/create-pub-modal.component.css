@@ -93,6 +93,7 @@
     overflow: auto;
     font-family: Asap;
     font-size: 1em;
+    padding: 1%;
 }
 
 .review:focus {
