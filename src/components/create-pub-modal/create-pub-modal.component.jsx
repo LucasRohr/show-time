@@ -7,8 +7,10 @@ import StarRatings from 'react-star-ratings';
 import { colors } from '../../style/colors';
 import { ReactComponent as AddImage } from '../../assets/icons/image-plus.svg';
 import { ReactComponent as DeleteImage } from '../../assets/icons/trash-alt-solid.svg';
+import { ReactComponent as ExitPreview } from '../../assets/icons/times-circle-regular.svg';
 import { ButtonCommon } from '../button-common/button-common.component.jsx';
 import { Radio } from '../radio/radio.component';
+import { Publication } from '../../models/publication';
 
 export class CreatePubModal extends React.PureComponent {
 
@@ -54,6 +56,18 @@ export class CreatePubModal extends React.PureComponent {
         }
     }
 
+    setTitle = (e) => {
+        this.setState({ title: e.target.value });
+    }
+
+    setShowName = (e) => {
+        this.setState({ showName: e.target.value });
+    }
+
+    setReview = (e) => {
+        this.setState({ review: e.target.value });
+    }
+
     activateInputFile = () => {
         if(this.state.image) {
             this.setState({ image: null });
@@ -79,6 +93,15 @@ export class CreatePubModal extends React.PureComponent {
         this.setState(prevState => ({ 
             isImagePreviewOpen: !prevState.isImagePreviewOpen
         }));
+    }
+
+    publish = () => {
+        let publication = new Publication(
+            "lusca", "", new Date(), this.state.title, this.state.isShow, this.state.showName,
+            this.state.grade, this.state.hasInNetflix, this.state.image, this.state.review
+        );
+
+        console.log(publication);
     }
 
     render() {
@@ -126,14 +149,16 @@ export class CreatePubModal extends React.PureComponent {
                                 inputType="text"
                                 inputWidth="90%"
                                 inputHeight="25%"
-                                inputPlaceholder="Nome da série"
+                                inputPlaceholder="Título da publicação"
+                                setInput={this.setTitle}
                             />
 
                             <Input
                                 inputType="text"
                                 inputWidth="90%"
                                 inputHeight="25%"
-                                inputPlaceholder="Título da publicação"
+                                inputPlaceholder={ `Nome ${ this.state.isShow ? "da série" : "do filme" }` }
+                                setInput={this.setShowName}
                             />
                         </div>
 
@@ -152,8 +177,10 @@ export class CreatePubModal extends React.PureComponent {
                                 />
                             </div>
 
-                            <textarea className="review" placeholder="O que você achou?" />
-
+                            <textarea className="review"
+                                placeholder="O que você achou?"
+                                onChange={this.setReview}
+                            />
                         </div>
 
                         <div className="image-send" >
@@ -177,17 +204,16 @@ export class CreatePubModal extends React.PureComponent {
                                     <ButtonCommon buttonWidth="30%"
                                         buttonHeight="60%"
                                         buttonPadding="0%"
-                                        onClick={ this.handleImagePreviewModal }>
+                                        onButtonClick={ this.handleImagePreviewModal }>
                                             Ver imagem
                                     </ButtonCommon>
                                 :
                                     <div></div>
-
                             }
 
                             <Modal open={this.state.isImagePreviewOpen} onClose={this.handleImagePreviewModal}>
                                 <Slide direction="up" in={this.state.isImagePreviewOpen} mountOnEnter unmountOnExit>
-                                    <div className="pub-modal-image-preview">
+                                    <div className="pub-modal-image-preview" onClick={this.handleImagePreviewModal}>
                                         <img id="create-pub-image-preview" className="image-preview"
                                             src={this.state.image}
                                         />
@@ -197,7 +223,9 @@ export class CreatePubModal extends React.PureComponent {
                             
                             <ButtonCommon buttonWidth="25%"
                                 buttonHeight="60%"
-                                buttonPadding="0%">
+                                buttonPadding="0%"
+                                onButtonClick={this.publish}
+                                >
                                 Publicar
                             </ButtonCommon>
 

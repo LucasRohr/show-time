@@ -139,13 +139,27 @@
 .image-preview {
     height: auto;
     width: auto;
+    transform: scale(0.6, 0.6);
+    outline: none;
+    border-radius: 5px;
 }
 
 .pub-modal-image-preview {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.6);
+    outline: none;
+}
+
+.exit-preview {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    overflow: auto;
-    background: var(--primary);
-    padding: 2%;
+    top: 3%;
+    right: 3%;
+    width: 8%;
+    height: 8%;
+    fill: var(--primary);
+    cursor: pointer;
 }

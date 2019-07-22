@@ -146,7 +146,9 @@ export class TimelineScene extends React.PureComponent {
                 </button>
 
                 <div>
-                    <CreatePubModal open={this.state.isPubModalOpen} onClose={this.handlePubModal} />
+                    <CreatePubModal open={this.state.isPubModalOpen}
+                        onClose={this.handlePubModal}
+                    />
                 </div>
 
             </div>
