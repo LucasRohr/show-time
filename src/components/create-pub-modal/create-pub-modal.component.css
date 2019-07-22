@@ -1,8 +1,10 @@
 .pub-modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     width: 35%;
     height: 80%;
     background: var(--background);
-    align-self: center;
 }
 
 .modal-content {
@@ -118,8 +120,21 @@
     cursor: pointer;
 }
 
-.add-image-icon {
+.image-input {
+    display: none;
+}
+
+.pub-image-button:focus {
+    outline: none;
+}
+
+.image-icon {
     width: 60%;
     height: 60%;
     fill: var(--background);
+}
+
+.image-preview {
+    height: 80%;
+    width: 30%;
 }

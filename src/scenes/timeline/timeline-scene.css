@@ -200,6 +200,10 @@
     cursor: pointer;
 }
 
+.floating-button:focus {
+    outline: none;
+}
+
 .recommendation-icon {
     width: 60%;
     height: 80%;

@@ -6,6 +6,7 @@ import { Input } from '../input/input.component.jsx';
 import StarRatings from 'react-star-ratings';
 import { colors } from '../../style/colors';
 import { ReactComponent as AddImage } from '../../assets/icons/image-plus.svg';
+import { ReactComponent as DeleteImage } from '../../assets/icons/trash-alt-solid.svg';
 import { ButtonCommon } from '../button-common/button-common.component.jsx';
 import { Radio } from '../radio/radio.component';
 
@@ -20,8 +21,8 @@ export class CreatePubModal extends React.PureComponent {
             title: '',
             grade: 0,
             review: '',
-            image: undefined
-        }
+            image: null,
+        };
     }
 
     changeRating = (rating) => {
@@ -49,6 +50,28 @@ export class CreatePubModal extends React.PureComponent {
     handleSelectedSecondNetflix = () => {
         if(this.state.hasInNetflix) {
             this.setState({ hasInNetflix: false });
+        }
+    }
+
+    activateInputFile = () => {
+        if(this.state.image) {
+            this.setState({ image: null });
+        }else{
+            document.getElementById("input-file-publication").click();
+        }
+    }
+
+    encodeImageFile = (evt) => {
+        var tgt = evt.target || window.event.srcElement;
+        var files = tgt.files;
+        var that = this;
+        if (FileReader && files && files.length) {
+            var fr = new FileReader();
+            fr.onloadend = function (loadEvent) {
+                document.getElementById("create-pub-image-preview").src = loadEvent.target.result;
+                that.setState({ image: loadEvent.target.result });
+            }
+            fr.readAsDataURL(files[0]);
         }
     }
 
@@ -129,9 +152,24 @@ export class CreatePubModal extends React.PureComponent {
 
                         <div className="image-send" >
 
-                            <button className="pub-image-button" >
-                                <AddImage className="add-image-icon" />
+                            <input id="input-file-publication" className="image-input"
+                                type="file"
+                                accept="image/*"
+                                onChange={ (evt) => this.encodeImageFile(evt) }/>
+                            
+                            <button className="pub-image-button" onClick={this.activateInputFile} >
+                                {
+                                    this.state.image ?
+                                        <DeleteImage className="image-icon" />
+                                    :
+                                        <AddImage className="image-icon" />
+                                }
                             </button>
+
+                            <img id="create-pub-image-preview" className="image-preview"
+                                src={this.state.image}
+                            />
+                            <p>{this.state.image ? console.log(this.state.image) : 'nope'}</p>
                             
                             <ButtonCommon buttonWidth="25%"
                                 buttonHeight="60%"
