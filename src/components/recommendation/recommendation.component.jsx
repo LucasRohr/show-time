@@ -27,12 +27,12 @@ export class Recommendation extends React.PureComponent {
 
                         <p className="sender-title" > <span className="sender-username" > {this.props.senderUsername} </span> enviou uma recomendação! </p>
 
-                        <div className="title-show" >
+                        <div className="title-show-container" >
                             <p className="recommendation-title" > {this.props.title} </p>
 
                             <p className="recommendation-show-name" >
-                                <span className="show-type" > {this.props.isShow ? "Série: " : "Filme: "} </span>
-                                {this.props.showName}
+                                {this.props.isShow ? "Série: " : "Filme: "}
+                                <span className="show-name-rec" > {this.props.showName} </span>
                             </p>
 
                             <p className="recommendation-netflix" > {this.props.hasInNetflix ? "Tem na Netflix!" : "Não tem na Netflix"} </p>
