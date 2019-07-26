@@ -171,7 +171,7 @@ export class TimelineScene extends React.PureComponent {
                     <SearchUsersModal open={this.state.isSearchUsersModalOpen}
                         onClose={this.handleSearchUsersModal}
                     />
-                    
+                        
                     <CreateRecModal open={this.state.isRecModalOpen}
                         onClose={this.handleRecModal}
                     />

@@ -94,8 +94,6 @@ export class RegisterScene extends React.PureComponent {
                         onBlur={ this.changeDateInputTypeToText }
                     />
 
-                    <p> {this.dateInputType} </p>
-
                     <div className="register-button-container" >
                         <ButtonCommon buttonWidth="35%" buttonPadding="2%" onButtonClick={this.register}>
                             Registrar
