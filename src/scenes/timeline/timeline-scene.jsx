@@ -10,7 +10,7 @@ import { ReactComponent as Profile } from '../../assets/icons/user-circle-solid.
 import { publicationsMock } from '../../mocks/pubs.mocks';
 import { Publication } from '../../components/publication/publication.component.jsx';
 import { CreatePubModal } from '../../components/create-pub-modal/create-pub-modal.component.jsx';
-import { CreateRecModal } from '../../components/recommendation/create-rec-modal.component';
+import { CreateRecModal } from '../../components/recommendation-modal/create-rec-modal.component';
 import { SearchUsersModal } from '../../components/search-users-modal/search-users-modal.component';
 
 export class TimelineScene extends React.PureComponent {

@@ -5,7 +5,7 @@ import Slide from '@material-ui/core/Slide';
 import { Radio } from '../radio/radio.component';
 import { Input } from '../input/input.component.jsx';
 import { Recommendation } from '../../models/recommendation';
-import { ButtonCommon } from '../../components/button-common/button-common.component.jsx';
+import { ButtonCommon } from '../button-common/button-common.component.jsx';
 import { ReactComponent as FriendsIcon } from '../../assets/icons/user-friends-solid.svg';
 import { ReactComponent as UserIcon } from '../../assets/icons/user-circle-solid.svg';
 import { User } from '../../models/user';
