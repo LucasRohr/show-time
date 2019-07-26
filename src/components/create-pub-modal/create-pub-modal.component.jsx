@@ -105,7 +105,7 @@ export class CreatePubModal extends React.PureComponent {
 
     render() {
         return (
-            <Modal className="pub-modal" open={this.props.open} onClose={this.props.onClose} >
+            <Modal className="create-pub-modal" open={this.props.open} onClose={this.props.onClose} >
                 <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit>
                     <div className="modal-content" >
                         
@@ -176,7 +176,7 @@ export class CreatePubModal extends React.PureComponent {
                                 />
                             </div>
 
-                            <textarea className="review"
+                            <textarea className="pub-review"
                                 placeholder="O que você achou?"
                                 onChange={this.setReview}
                             />

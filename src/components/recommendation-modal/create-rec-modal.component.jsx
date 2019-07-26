@@ -71,7 +71,7 @@ export class CreateRecModal extends React.PureComponent {
 
     render() {
         return (
-            <Modal className="rec-modal" open={this.props.open} onClose={this.props.onClose} >
+            <Modal className="create-rec-modal" open={this.props.open} onClose={this.props.onClose} >
                 <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit>
 
                     <div className="modal-content" >
@@ -157,7 +157,7 @@ export class CreateRecModal extends React.PureComponent {
                             />
                         </div>
 
-                        <textarea className="review"
+                        <textarea className="rec-review"
                             placeholder="O que você achou?"
                             onChange={this.setReview}
                         />
