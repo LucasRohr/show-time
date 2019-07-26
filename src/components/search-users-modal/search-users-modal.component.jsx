@@ -23,8 +23,9 @@ export class SearchUsersModal extends React.PureComponent {
         };
     }
 
-    setSearchText = (text) => {
+    searchUsers = (text) => {
         this.setState({ searchText: text });
+        //send text to api with DB search using like
     }
 
     renderNoSearchMadeMessage = () => {
@@ -76,7 +77,7 @@ export class SearchUsersModal extends React.PureComponent {
                             <div className="search-users-input-container" >
                                 <input type="text"
                                     className="user-search-input"
-                                    onChange={ (text) => this.setSearchText(text) }
+                                    onChange={ (text) => this.searchUsers(text) }
                                     placeholder="Digite o nome de alguém"
                                 />
 
