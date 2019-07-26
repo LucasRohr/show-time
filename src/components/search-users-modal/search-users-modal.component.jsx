@@ -13,7 +13,13 @@ export class SearchUsersModal extends React.PureComponent {
         super(props);
         this.state = {
             searchText: "",
-            searchUsersResults: []
+            searchUsersResults: [
+                {
+                    userId: 1,
+                    username: "jaozinho",
+                    userAvatar: ""
+                }
+            ]
         };
     }
 
@@ -44,12 +50,15 @@ export class SearchUsersModal extends React.PureComponent {
     renderUsersFromSearch = () => {
         return (
             this.state.searchUsersResults.map(
-                (userSearch) => {
-                    <SearchUserResult
-                        userId={userSearch.id}
-                        username={userSearch.username}
-                        userAvatar={userSearch.avatar}
-                    />
+                (userSearch, key) => {
+                    return (
+                        <SearchUserResult
+                            key={key}
+                            userId={userSearch.id}
+                            username={userSearch.username}
+                            userAvatar={userSearch.avatar}
+                        />
+                    )
                 }
             )
         );
@@ -75,12 +84,16 @@ export class SearchUsersModal extends React.PureComponent {
                             </div>
                         </div>
 
-                        {
-                            this.state.searchUsersResults.length > 0 ?
-                                this.renderUsersFromSearch()
-                            :
-                                this.renderNoSearchMadeMessage()
-                        }
+                        <div className="search-users-modal-body" >
+
+                            {
+                                this.state.searchUsersResults.length > 0 ?
+                                    this.renderUsersFromSearch()
+                                :
+                                    this.renderNoSearchMadeMessage()
+                            }
+
+                        </div>
 
                     </div>
                 </Slide>

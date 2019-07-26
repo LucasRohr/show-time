@@ -1,6 +1,6 @@
 .search-users-modal {
     width: 35%;
-    height: 60%;
+    height: 70%;
 }
 
 .modal-search-users-content {
@@ -9,7 +9,7 @@
     align-self: center;
     position: absolute;
     left: 90%;
-    top: 10%;
+    top: 15%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -47,7 +47,12 @@
 .user-search-input {
     height: 45%;
     width: 90%;
+    padding: 1%;
+    font-size: 1.2em;
+    color: var(--primary);
+    font-family: Asap;
     background: var(--background);
+    border: none;
     border-bottom: 1px solid var(--black);
 }
 
@@ -56,10 +61,19 @@
 }
 
 .user-search-icon {
-    height: 100%;
+    height: 70%;
     width: 10%;
     fill: var(--primary);
     cursor: pointer;
+}
+
+.search-users-modal-body {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .no-search-made-container {
@@ -69,10 +83,11 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    align-self: center;
 }
 
 .no-search-made-icon {
-    height: 20%;
+    height: 40%;
     width: 50%;
     fill: var(--primary);
 }
@@ -80,7 +95,8 @@
 .no-search-made-message {
     font-family: Righteous;
     color: var(--primary);
-    font-size: 1.2em;
+    font-size: 1.5em;
+    text-align: center;
 }
 
 .no-search-results-container {
@@ -93,7 +109,7 @@
 }
 
 .no-search-results-icon {
-    height: 20%;
+    height: 40%;
     width: 50%;
     fill: var(--primary);
 }
@@ -101,5 +117,6 @@
 .no-search-results-message {
     font-family: Righteous;
     color: var(--primary);
-    font-size: 1.2em;
+    font-size: 1.5em;
+    text-align: center;
 }

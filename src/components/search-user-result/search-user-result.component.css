@@ -3,12 +3,12 @@
     height: 15%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
 .user-info {
-    width: 60%;
+    width: 40%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -18,14 +18,14 @@
 
 .user-avatar {
     width: 50%;
-    height: 90%;
+    height: 100%;
     transform: scale(0.2, 0.2);
     border-radius: 120px;
 }
 
 .user-avatar-icon {
     width: 30%;
-    height: 90%;
+    height: 100%;
     transform: scale(0.8, 0.8);
     fill: var(--primary);
 }
@@ -38,7 +38,8 @@
 
 .search-add-user-icon {
     width: 30%;
-    height: 90%;
+    height: 80%;
     transform: scale(0.8, 0.8);
     fill: var(--primary);
+    cursor: pointer;
 }
