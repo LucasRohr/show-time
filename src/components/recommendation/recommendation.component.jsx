@@ -4,6 +4,8 @@ import { ButtonCommon } from '../button-common/button-common.component.jsx';
 import { colors } from '../../style/colors';
 import Modal from '@material-ui/core/Modal';
 import Slide from '@material-ui/core/Slide';
+import { ReactComponent as UserIcon } from '../../assets/icons/user-circle-solid.svg';
+
 export class Recommendation extends React.PureComponent {
 
     constructor(props) {
@@ -25,7 +27,18 @@ export class Recommendation extends React.PureComponent {
                 <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit>
                     <div className="recommendation-container" >
 
-                        <p className="sender-title" > <span className="sender-username" > {this.props.senderUsername} </span> enviou uma recomendação! </p>
+                        <div className="sender-info-container" >
+                            
+                            {
+                                this.props.senderAvatar ?
+                                    <img className="sender-avatar" src={ this.props.senderAvatar } />
+                                :
+                                    <UserIcon className="sender-avatar-icon" />
+                            }
+
+                            <p className="sender-title" > <span className="sender-username" > {this.props.senderUsername} </span> enviou uma recomendação! </p>
+                            
+                        </div>
 
                         <div className="title-show-container" >
                             <p className="recommendation-title" > {this.props.title} </p>

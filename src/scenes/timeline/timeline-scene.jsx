@@ -6,13 +6,13 @@ import history from '../../history';
 import { ButtonCommon } from '../../components/button-common/button-common.component.jsx';
 import { ReactComponent as Plus } from '../../assets/icons/plus-solid.svg';
 import { ReactComponent as People } from '../../assets/icons/user-friends-solid.svg';
-import { ReactComponent as Profile } from '../../assets/icons/user-circle-solid.svg';
+import { ReactComponent as ProfileIcon } from '../../assets/icons/user-circle-solid.svg';
 import { publicationsMock } from '../../mocks/pubs.mocks';
 import { Publication } from '../../components/publication/publication.component.jsx';
 import { CreatePubModal } from '../../components/create-pub-modal/create-pub-modal.component.jsx';
 import { CreateRecModal } from '../../components/recommendation-modal/create-rec-modal.component';
 import { SearchUsersModal } from '../../components/search-users-modal/search-users-modal.component';
-import { Recommendation } from '../../components/recommendation/recommendation.component';
+import { Profile } from '../../components/profile/profile.component';
 
 export class TimelineScene extends React.PureComponent {
 
@@ -24,6 +24,7 @@ export class TimelineScene extends React.PureComponent {
             publications: publicationsMock,
             isPubModalOpen: false,
             isSearchUsersModalOpen: false,
+            isProfileModalOpen: false,
             isRecModalOpen: false
         }
     }
@@ -41,6 +42,12 @@ export class TimelineScene extends React.PureComponent {
     handleSearchUsersModal = () => {
         this.setState(prevState => ({ 
             isSearchUsersModalOpen: !prevState.isSearchUsersModalOpen
+        }));
+    }
+
+    handleProfileModal = () => {
+        this.setState(prevState => ({ 
+            isProfileModalOpen: !prevState.isProfileModalOpen
         }));
     }
 
@@ -108,7 +115,7 @@ export class TimelineScene extends React.PureComponent {
                             </div>
                         </ButtonCommon>
 
-                        <Profile className="user-profile-icon"/>
+                        <ProfileIcon className="user-profile-icon" onClick={this.handleProfileModal} />
 
                     </div>
 
@@ -164,6 +171,7 @@ export class TimelineScene extends React.PureComponent {
                 </button>
 
                 <div>
+
                     <CreatePubModal open={this.state.isPubModalOpen}
                         onClose={this.handlePubModal}
                     />
@@ -171,9 +179,13 @@ export class TimelineScene extends React.PureComponent {
                     <SearchUsersModal open={this.state.isSearchUsersModalOpen}
                         onClose={this.handleSearchUsersModal}
                     />
-                    
+                        
                     <CreateRecModal open={this.state.isRecModalOpen}
                         onClose={this.handleRecModal}
+                    />
+
+                    <Profile open={this.state.isProfileModalOpen}
+                        onClose={this.handleProfileModal}
                     />
 
                 </div>
