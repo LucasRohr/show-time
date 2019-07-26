@@ -7,9 +7,10 @@ export class SearchUserResult extends React.PureComponent {
 
     constructor(props) {
         super(props);
-        this.state = {
-            userId: this.props.userId
-        };
+    }
+
+    sendFriendInvite = () => {
+        // use this.props.userId to invite friend
     }
 
     render() {
@@ -26,7 +27,7 @@ export class SearchUserResult extends React.PureComponent {
                     <p className="search-result-username" > {this.props.username} </p>
                 </div>
 
-                <AddUser className="search-add-user-icon" />
+                <AddUser className="search-add-user-icon" onClick={this.sendFriendInvite} />
             </div>
         );
     }
