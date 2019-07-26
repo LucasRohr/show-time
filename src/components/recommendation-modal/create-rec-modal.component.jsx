@@ -5,7 +5,7 @@ import Slide from '@material-ui/core/Slide';
 import { Radio } from '../radio/radio.component';
 import { Input } from '../input/input.component.jsx';
 import { Recommendation } from '../../models/recommendation';
-import { ButtonCommon } from '../../components/button-common/button-common.component.jsx';
+import { ButtonCommon } from '../button-common/button-common.component.jsx';
 import { ReactComponent as FriendsIcon } from '../../assets/icons/user-friends-solid.svg';
 import { ReactComponent as UserIcon } from '../../assets/icons/user-circle-solid.svg';
 import { User } from '../../models/user';
@@ -71,7 +71,7 @@ export class CreateRecModal extends React.PureComponent {
 
     render() {
         return (
-            <Modal className="rec-modal" open={this.props.open} onClose={this.props.onClose} >
+            <Modal className="create-rec-modal" open={this.props.open} onClose={this.props.onClose} >
                 <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit>
 
                     <div className="modal-content" >
@@ -157,7 +157,7 @@ export class CreateRecModal extends React.PureComponent {
                             />
                         </div>
 
-                        <textarea className="review"
+                        <textarea className="rec-review"
                             placeholder="O que você achou?"
                             onChange={this.setReview}
                         />

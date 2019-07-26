@@ -1,0 +1,85 @@
+.rec-modal {
+    width: 40%;
+    height: 40%;
+}
+
+.recommendation-container {
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    position: absolute;
+    left: 70%;
+    top: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--background);
+    padding: 3%;
+    border-radius: 5px;
+    outline: none;
+}
+
+.sender-title {
+    font-family: Righteous;
+    color: var(--black);
+    font-size: 1.3em;
+}
+
+.sender-username {
+    color: var(--primary);
+}
+
+.title-show-container {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.recommendation-title {
+    font-family: Righteous;
+    color: var(--primary);
+    font-size: 1.5em;
+}
+
+.recommendation-show-name {
+    font-family: Righteous;
+    color: var(--black);
+    font-size: 1.3em;
+}
+
+.show-name-rec {
+    color: var(--primary);
+}
+
+.recommendation-netflix {
+    font-family: Righteous;
+    color: var(--primary);
+    font-size: 1.3em;
+}
+
+.recommendation-review-container {
+    width: 95%;
+    height: auto;
+    border: 0.5px solid var(--primary-lighter);
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.recommendation-review {
+    font-family: Righteous;
+    color: var(--black);
+    font-size: 1.2em;
+}
+
+.recommendation-options-container {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

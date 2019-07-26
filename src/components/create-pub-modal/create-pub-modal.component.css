@@ -1,4 +1,4 @@
-.pub-modal {
+.create-pub-modal {
     width: 35%;
     height: 80%;
 }
@@ -83,7 +83,7 @@
     font-size: 1.2em;
 }
 
-.review {
+.pub-review {
     width: 90%;
     height: 40%;
     border: 0.5px solid var(--primary-lighter);
@@ -96,7 +96,7 @@
     padding: 1%;
 }
 
-.review:focus {
+.pub-review:focus {
     outline: none;
 }
 

@@ -1,4 +1,4 @@
-.rec-modal {
+.create-rec-modal {
     width: 35%;
     height: 80%;
 }
@@ -123,7 +123,7 @@
     align-items: flex-start;
 }
 
-.review {
+.rec-review {
     width: 90%;
     height: 20%;
     border: 0.5px solid var(--primary-lighter);
@@ -136,7 +136,7 @@
     padding: 1%;
 }
 
-.review:focus {
+.rec-review:focus {
     outline: none;
 }
 
