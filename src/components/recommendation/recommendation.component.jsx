@@ -46,6 +46,7 @@ export class Recommendation extends React.PureComponent {
                             <ButtonCommon
                                 buttonWidth="30%"
                                 buttonHeight="90%"
+                                buttonPadding="0%"
                                 onButtonClick={this.declineRecommendation}
                                 background={colors.background}
                                 color={colors.primary}
@@ -57,6 +58,7 @@ export class Recommendation extends React.PureComponent {
                             <ButtonCommon
                                 buttonWidth="30%"
                                 buttonHeight="90%"
+                                buttonPadding="0%"
                                 onButtonClick={this.acceptRecommendation}
                             >
                                 Vou assistir!
