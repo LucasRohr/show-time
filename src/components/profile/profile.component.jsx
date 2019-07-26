@@ -4,6 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import Slide from '@material-ui/core/Slide';
 import { ButtonCommon } from '../button-common/button-common.component';
 import history from '../../history';
+import { ReactComponent as UserIcon } from '../../assets/icons/user-circle-solid.svg';
 
 export class Profile extends React.PureComponent {
 
@@ -13,6 +14,13 @@ export class Profile extends React.PureComponent {
             username: "username de alguem",
             fullName: "nome de alguem",
             birthday: new Date(),
+            // === DATE FORMATING ===
+            day: "",
+            dayF: "",
+            month: "",
+            monthF: "",
+            year: "",
+            // ======================
             avatar: null,
             publications: 13
         };
@@ -56,8 +64,8 @@ export class Profile extends React.PureComponent {
                             </div>
 
                             <ButtonCommon
-                                height="100%"
-                                width="15%"
+                                buttonHeight="90%"
+                                buttonWidth="15%"
                                 buttonPadding="0%"
                                 onButtonClick={this.logout}
                             >
@@ -66,25 +74,25 @@ export class Profile extends React.PureComponent {
 
                         </div>
 
-                        <div className="full-name-container-profile" >
-                            <p className="full-name-profile-label" > Nome completo </p>
-                            <p className="full-name-profile" > {this.state.fullName} </p>
+                        <div className="profile-info-container" >
+                            <p className="profile-info-label" > Nome completo </p>
+                            <p className="profile-info" > {this.state.fullName} </p>
                         </div>
 
-                        <div className="birthday-container-profile" >
-                            <p className="birthday-profile-label" > Data de nascimento </p>
-                            <p className="birthday-profile" > {this.formatBirthday(this.state.birthday)} </p>
+                        <div className="profile-info-container" >
+                            <p className="profile-info-label" > Data de nascimento </p>
+                            <p className="profile-info" > {this.formatBirthday(this.state.birthday)} </p>
                         </div>
 
-                        <div className="publications-container-profile" >
-                            <p className="publications-profile-label" > Publicações </p>
-                            <p className="publications-profile" > {this.state.publications} </p>
+                        <div className="profile-info-container" >
+                            <p className="profile-info-label" > Publicações </p>
+                            <p className="profile-info" > {this.state.publications} </p>
                         </div>
 
                         <div className="go-to-update-button-container" >
                             <ButtonCommon
-                                height="100%"
-                                width="35%"
+                                buttonHeight="90%"
+                                buttonWidth="35%"
                                 buttonPadding="0%"
                                 onButtonClick={this.renderUpdateProfile}
                             >
