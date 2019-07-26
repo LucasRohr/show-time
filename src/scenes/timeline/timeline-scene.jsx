@@ -11,6 +11,7 @@ import { publicationsMock } from '../../mocks/pubs.mocks';
 import { Publication } from '../../components/publication/publication.component.jsx';
 import { CreatePubModal } from '../../components/create-pub-modal/create-pub-modal.component.jsx';
 import { CreateRecModal } from '../../components/recommendation/create-rec-modal.component';
+import { SearchUsersModal } from '../../components/search-users-modal/search-users-modal.component';
 
 export class TimelineScene extends React.PureComponent {
 
@@ -21,6 +22,7 @@ export class TimelineScene extends React.PureComponent {
             currentUser: { username: "Lusquinha crey crey" },
             publications: publicationsMock,
             isPubModalOpen: false,
+            isSearchUsersModalOpen: false,
             isRecModalOpen: false
         }
     }
@@ -32,6 +34,12 @@ export class TimelineScene extends React.PureComponent {
     handlePubModal = () => {
         this.setState(prevState => ({ 
             isPubModalOpen: !prevState.isPubModalOpen
+        }));
+    }
+
+    handleSearchUsersModal = () => {
+        this.setState(prevState => ({ 
+            isSearchUsersModalOpen: !prevState.isSearchUsersModalOpen
         }));
     }
 
@@ -91,6 +99,7 @@ export class TimelineScene extends React.PureComponent {
                         <ButtonCommon
                             buttonWidth="30%"
                             buttonHeight="10%"
+                            onButtonClick={this.handleSearchUsersModal}
                         >
                             <div className="button-publication" >
                                 <p className="search-people" > Procurar pessoas </p>
@@ -156,6 +165,10 @@ export class TimelineScene extends React.PureComponent {
                 <div>
                     <CreatePubModal open={this.state.isPubModalOpen}
                         onClose={this.handlePubModal}
+                    />
+
+                    <SearchUsersModal open={this.state.isSearchUsersModalOpen}
+                        onClose={this.handleSearchUsersModal}
                     />
 
                     <CreateRecModal open={this.state.isRecModalOpen}
