@@ -11,13 +11,33 @@ export class RegisterScene extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            fullName: '',
             username: '',
             password: '',
             passwordConfirmation: '',
             birthday: '',
             dateInputType: 'text'
         };
+    }
+
+    setFullName = (e) => {
+        this.setState({ fullName: e.target.value });
+    }
+
+    setUsername = (e) => {
+        this.setState({ username: e.target.value });
+    }
+
+    setPassword = (e) => {
+        this.setState({ password: e.target.value });
+    }
+
+    setPasswordConfirmation = (e) => {
+        this.setState({ passwordConfirmation: e.target.value });
+    }
+
+    setBirthday = (e) => {
+        this.setState({ birthday: e.target.value });
     }
 
     changeDateInputTypeToDate = () => {
@@ -61,7 +81,7 @@ export class RegisterScene extends React.PureComponent {
                         inputWidth="50%"
                         inputHeight="5%"
                         inputPlaceholder="Nome completo"
-                        setInput={this.setUsername}
+                        setInput={this.setFullName}
                     />
 
                     <Input inputType="text"
@@ -75,21 +95,21 @@ export class RegisterScene extends React.PureComponent {
                         inputWidth="50%"
                         inputHeight="5%"
                         inputPlaceholder="Senha"
-                        setInput={this.setUsername}
+                        setInput={this.setPassword}
                     />
 
                     <Input inputType="password"
                         inputWidth="50%"
                         inputHeight="5%"
                         inputPlaceholder="Confirme sua senha"
-                        setInput={this.setUsername}
+                        setInput={this.setPasswordConfirmation}
                     />
 
                     <Input inputType={this.state.dateInputType}
                         inputWidth="50%"
                         inputHeight="5%"
                         inputPlaceholder="Data de nascimento"
-                        setInput={this.setUsername}
+                        setInput={this.setBirthday}
                         onFocus={ this.changeDateInputTypeToDate }
                         onBlur={ this.changeDateInputTypeToText }
                     />

@@ -77,13 +77,12 @@ export class CreatePubModal extends React.PureComponent {
     }
 
     encodeImageFile = (evt) => {
-        var tgt = evt.target || window.event.srcElement;
-        var files = tgt.files;
-        var that = this;
+        let tgt = evt.target || window.event.srcElement;
+        let files = tgt.files;
         if (FileReader && files && files.length) {
-            var fr = new FileReader();
-            fr.onloadend = function (loadEvent) {
-                that.setState({ image: loadEvent.target.result });
+            let fr = new FileReader();
+            fr.onloadend = (loadEvent) => {
+                this.setState({ image: loadEvent.target.result });
             }
             fr.readAsDataURL(files[0]);
         }

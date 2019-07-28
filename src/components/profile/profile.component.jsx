@@ -5,6 +5,7 @@ import Slide from '@material-ui/core/Slide';
 import { ButtonCommon } from '../button-common/button-common.component';
 import history from '../../history';
 import { ReactComponent as UserIcon } from '../../assets/icons/user-circle-solid.svg';
+import { UpdateProfile } from '../update-profile/update-profile.component';
 
 export class Profile extends React.PureComponent {
 
@@ -22,7 +23,8 @@ export class Profile extends React.PureComponent {
             year: "",
             // ======================
             avatar: null,
-            publications: 13
+            publications: 13,
+            isUpdateProfileModalOpen: false
         };
     }
 
@@ -39,10 +41,11 @@ export class Profile extends React.PureComponent {
         history.push('login');
     }
 
-    renderUpdateProfile = () => {
-        return (
-            <div></div>
-        );
+    handleIsUpdateProfileModalOpen = () => {
+        this.setState( prevState => ({
+                isUpdateProfileModalOpen: !prevState.isUpdateProfileModalOpen
+            })
+        )
     }
 
     render() {
@@ -94,12 +97,19 @@ export class Profile extends React.PureComponent {
                                 buttonHeight="90%"
                                 buttonWidth="35%"
                                 buttonPadding="0%"
-                                onButtonClick={this.renderUpdateProfile}
+                                onButtonClick={this.handleIsUpdateProfileModalOpen}
                             >
                                 Atualizar perfil
                             </ButtonCommon>
                         </div>
 
+                    </div>
+
+                    <div>
+                        <UpdateProfile
+                            open={this.state.isUpdateProfileModalOpen}
+                            onClose={this.handleIsUpdateProfileModalOpen}
+                        />
                     </div>
                 </Slide>
             </Modal>
