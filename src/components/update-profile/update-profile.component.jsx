@@ -6,6 +6,7 @@ import { ButtonCommon } from '../button-common/button-common.component.jsx';
 import { ReactComponent as LockedIcon } from '../../assets/icons/lock-solid.svg';
 import { ReactComponent as UserAvatarIcon } from '../../assets/icons/user-circle-solid.svg';
 import { Input } from '../input/input.component.jsx';
+import { ReactComponent as DeleteAvatar } from '../../assets/icons/trash-alt-solid.svg';
 
 export class UpdateProfile extends React.PureComponent {
 
@@ -18,7 +19,8 @@ export class UpdateProfile extends React.PureComponent {
             username: '',
             birthday: '',
             dateInputType: 'text',
-            isUpdatePasswordModalOpen: false
+            isUpdatePasswordModalOpen: false,
+            isAvatarPreviewOpen: false
         };
     }
 
@@ -30,7 +32,11 @@ export class UpdateProfile extends React.PureComponent {
     }
 
     activateInputFile = () => {
-        document.getElementById("input-file-update-profile").click();
+        if(this.state.avatar) {
+            this.setState({ avatar: null });
+        }else{
+            document.getElementById("input-file-update-profile").click();
+        }
     }
 
     encodeAvatarFile = (evt) => {
@@ -39,7 +45,7 @@ export class UpdateProfile extends React.PureComponent {
         if (FileReader && files && files.length) {
             let fr = new FileReader();
             fr.onloadend = (loadEvent) => {
-                this.setState({ image: loadEvent.target.result });
+                this.setState({ avatar: loadEvent.target.result });
             }
             fr.readAsDataURL(files[0]);
         }
@@ -65,9 +71,15 @@ export class UpdateProfile extends React.PureComponent {
         this.setState({ dateInputType: 'text' });
     }
 
+    handleAvatarPreviewModal = () => {
+        this.setState(prevState => ({ 
+            isAvatarPreviewOpen: !prevState.isAvatarPreviewOpen
+        }));
+    }
+
     render() {
         return (
-            <Modal className="profile-modal" open={this.props.open} onClose={this.props.onClose} >
+            <Modal className="update-profile-modal" open={this.props.open} onClose={this.props.onClose} >
                 <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit >
                     <div className="update-profile-content" >
 
@@ -75,7 +87,7 @@ export class UpdateProfile extends React.PureComponent {
                             <p className="update-profile-title" > Atualize seu perfil </p>
 
                             <ButtonCommon
-                                buttonWidth="40%"
+                                buttonWidth="35%"
                                 buttonHeight="90%"
                                 buttonPadding="0%"
                                 onButtonClick={this.handleUpdatePasswordModal}
@@ -91,27 +103,64 @@ export class UpdateProfile extends React.PureComponent {
                             type="file"
                             accept="image/*"
                             onChange={ (evt) => this.encodeAvatarFile(evt) } />
+                        {this.state.avatar}
+                        {
 
-                        <UserAvatarIcon className="user-avatar-update-icon" onClick={this.activateInputFile} />
+                            this.state.avatar ?
+                                <div className="avatar-picked-container" >
+                                    <button className="avatar-delete-button" onClick={this.activateInputFile} >
+                                        <DeleteAvatar className="avatar-delete-icon" />
+                                    </button>
 
+                                    <ButtonCommon buttonWidth="55%"
+                                        buttonHeight="70%"
+                                        buttonPadding="0%"
+                                        onButtonClick={ this.handleAvatarPreviewModal }>
+                                            Ver imagem
+                                    </ButtonCommon>
+                                </div>
+                            :
+                                <div className="update-profile-avatar-container" >
+
+                                    {
+                                        this.state.avatar ?
+                                            <img className="update-profile-avatar" src={ this.state.avatar } />
+                                        :
+                                            <UserAvatarIcon className="update-profile-avatar-icon" onClick={this.activateInputFile} />
+                                    }
+
+                                </div>
+
+                        }
+
+                        <Modal open={this.state.isAvatarPreviewOpen} onClose={this.handleAvatarPreviewModal}>
+                            <Slide direction="up" in={this.state.isAvatarPreviewOpen} mountOnEnter unmountOnExit>
+                                <div className="update-profile-modal-avatar-preview" onClick={this.handleAvatarPreviewModal}>
+                                    <img id="update-profile-avatar-preview" className="avatar-preview"
+                                        src={this.state.avatar}
+                                    />
+                                </div>
+                            </Slide>
+                        </Modal>
+                        
                         <div className="update-fields-container" >
                             <Input inputType="text"
-                            inputWidth="90%"
-                            inputHeight="15%"
-                            inputPlaceholder="Nome completo"
-                            setInput={this.setFullName}
+                                inputWidth="60%"
+                                inputHeight="12%"
+                                inputPlaceholder="Nome completo"
+                                setInput={this.setFullName}
                             />
 
                             <Input inputType="text"
-                                inputWidth="90%"
-                                inputHeight="15%"
+                                inputWidth="60%"
+                                inputHeight="12%"
                                 inputPlaceholder="Nome de usuário"
                                 setInput={this.setUsername}
                             />
 
                             <Input inputType={this.state.dateInputType}
-                                inputWidth="90%"
-                                inputHeight="15%"
+                                inputWidth="60%"
+                                inputHeight="12%"
                                 inputPlaceholder="Data de nascimento"
                                 setInput={this.setBirthday}
                                 onFocus={ this.changeDateInputTypeToDate }
@@ -121,7 +170,7 @@ export class UpdateProfile extends React.PureComponent {
 
                         <div className="update-profile-button-container" >
                             <ButtonCommon
-                                buttonHeight="90%"
+                                buttonHeight="80%"
                                 buttonWidth="35%"
                                 buttonPadding="0%"
                                 onButtonClick={this.handleIsUpdateProfileModalOpen}

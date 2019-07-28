@@ -137,14 +137,6 @@
     fill: var(--background);
 }
 
-.image-preview {
-    height: auto;
-    width: auto;
-    transform: scale(0.6, 0.6);
-    outline: none;
-    border-radius: 5px;
-}
-
 .pub-modal-image-preview {
     height: 100%;
     width: 100%;
@@ -155,12 +147,10 @@
     outline: none;
 }
 
-.exit-preview {
-    position: absolute;
-    top: 3%;
-    right: 3%;
-    width: 8%;
-    height: 8%;
-    fill: var(--primary);
-    cursor: pointer;
+.image-preview {
+    height: auto;
+    width: auto;
+    transform: scale(0.6, 0.6);
+    outline: none;
+    border-radius: 5px;
 }

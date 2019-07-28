@@ -48,7 +48,6 @@
 .profile-avatar-icon {
     width: 25%;
     height: 100%;
-    transform: scale(1, 1);
     fill: var(--primary);
 }
 

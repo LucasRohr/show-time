@@ -7,7 +7,6 @@ import StarRatings from 'react-star-ratings';
 import { colors } from '../../style/colors';
 import { ReactComponent as AddImage } from '../../assets/icons/image-plus.svg';
 import { ReactComponent as DeleteImage } from '../../assets/icons/trash-alt-solid.svg';
-import { ReactComponent as ExitPreview } from '../../assets/icons/times-circle-regular.svg';
 import { ButtonCommon } from '../button-common/button-common.component.jsx';
 import { Radio } from '../radio/radio.component';
 import { Publication } from '../../models/publication';
