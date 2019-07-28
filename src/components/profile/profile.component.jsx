@@ -51,7 +51,7 @@ export class Profile extends React.PureComponent {
     render() {
         return (
             <Modal className="profile-modal" open={this.props.open} onClose={this.props.onClose} >
-                <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit>
+                <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit >
                     <div className="profile-modal-content" >
 
                         <div className="profile-header" >
@@ -103,14 +103,15 @@ export class Profile extends React.PureComponent {
                             </ButtonCommon>
                         </div>
 
+                        <div>
+                            <UpdateProfile
+                                open={this.state.isUpdateProfileModalOpen}
+                                onClose={this.handleIsUpdateProfileModalOpen}
+                            />
+                        </div>
+                        
                     </div>
-
-                    <div>
-                        <UpdateProfile
-                            open={this.state.isUpdateProfileModalOpen}
-                            onClose={this.handleIsUpdateProfileModalOpen}
-                        />
-                    </div>
+                    
                 </Slide>
             </Modal>
         );
