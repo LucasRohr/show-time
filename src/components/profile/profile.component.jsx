@@ -77,19 +77,21 @@ export class Profile extends React.PureComponent {
 
                         </div>
 
-                        <div className="profile-info-container" >
-                            <p className="profile-info-label" > Nome completo </p>
-                            <p className="profile-info" > {this.state.fullName} </p>
-                        </div>
+                        <div className="profile-user-info-container" >
+                            <div className="profile-info-container" >
+                                <p className="profile-info-label" > Nome completo </p>
+                                <p className="profile-info" > {this.state.fullName} </p>
+                            </div>
 
-                        <div className="profile-info-container" >
-                            <p className="profile-info-label" > Data de nascimento </p>
-                            <p className="profile-info" > {this.formatBirthday(this.state.birthday)} </p>
-                        </div>
+                            <div className="profile-info-container" >
+                                <p className="profile-info-label" > Data de nascimento </p>
+                                <p className="profile-info" > {this.formatBirthday(this.state.birthday)} </p>
+                            </div>
 
-                        <div className="profile-info-container" >
-                            <p className="profile-info-label" > Publicações </p>
-                            <p className="profile-info" > {this.state.publications} </p>
+                            <div className="profile-info-container" >
+                                <p className="profile-info-label" > Publicações </p>
+                                <p className="profile-info" > {this.state.publications} </p>
+                            </div>
                         </div>
 
                         <div className="go-to-update-button-container" >
@@ -103,12 +105,10 @@ export class Profile extends React.PureComponent {
                             </ButtonCommon>
                         </div>
 
-                        <div>
-                            <UpdateProfile
-                                open={this.state.isUpdateProfileModalOpen}
-                                onClose={this.handleIsUpdateProfileModalOpen}
-                            />
-                        </div>
+                        <UpdateProfile
+                            open={this.state.isUpdateProfileModalOpen}
+                            onClose={this.handleIsUpdateProfileModalOpen}
+                        />
                         
                     </div>
                     

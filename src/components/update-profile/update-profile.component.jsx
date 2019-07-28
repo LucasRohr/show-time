@@ -103,7 +103,7 @@ export class UpdateProfile extends React.PureComponent {
                             type="file"
                             accept="image/*"
                             onChange={ (evt) => this.encodeAvatarFile(evt) } />
-                        {this.state.avatar}
+                            
                         {
 
                             this.state.avatar ?
