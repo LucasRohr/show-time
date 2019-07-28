@@ -1,7 +1,8 @@
 import React from 'react';
 import './update-password.component.css';
 import { ButtonCommon } from '../../button-common/button-common.component.jsx';
-import { ReactComponent as BackArrow } from '../../assets/icons/arrow-left-solid.svg';
+import { ReactComponent as BackArrow } from '../../../assets/icons/arrow-left-solid.svg';
+import { Input } from '../../input/input.component.jsx';
 
 export class UpdatePassword extends React.PureComponent {
 
