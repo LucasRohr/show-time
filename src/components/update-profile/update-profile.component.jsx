@@ -35,6 +35,7 @@ export class UpdateProfile extends React.PureComponent {
         if(this.state.avatar) {
             this.setState({ avatar: null });
         }else{
+            document.getElementById("input-file-update-profile").value = null;
             document.getElementById("input-file-update-profile").click();
         }
     }

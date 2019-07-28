@@ -71,6 +71,7 @@ export class CreatePubModal extends React.PureComponent {
         if(this.state.image) {
             this.setState({ image: null });
         }else{
+            document.getElementById("input-file-publication").value = null;
             document.getElementById("input-file-publication").click();
         }
     }
