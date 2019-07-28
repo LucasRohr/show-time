@@ -7,7 +7,6 @@ import StarRatings from 'react-star-ratings';
 import { colors } from '../../style/colors';
 import { ReactComponent as AddImage } from '../../assets/icons/image-plus.svg';
 import { ReactComponent as DeleteImage } from '../../assets/icons/trash-alt-solid.svg';
-import { ReactComponent as ExitPreview } from '../../assets/icons/times-circle-regular.svg';
 import { ButtonCommon } from '../button-common/button-common.component.jsx';
 import { Radio } from '../radio/radio.component';
 import { Publication } from '../../models/publication';
@@ -72,18 +71,18 @@ export class CreatePubModal extends React.PureComponent {
         if(this.state.image) {
             this.setState({ image: null });
         }else{
+            document.getElementById("input-file-publication").value = null;
             document.getElementById("input-file-publication").click();
         }
     }
 
     encodeImageFile = (evt) => {
-        var tgt = evt.target || window.event.srcElement;
-        var files = tgt.files;
-        var that = this;
+        let tgt = evt.target || window.event.srcElement;
+        let files = tgt.files;
         if (FileReader && files && files.length) {
-            var fr = new FileReader();
-            fr.onloadend = function (loadEvent) {
-                that.setState({ image: loadEvent.target.result });
+            let fr = new FileReader();
+            fr.onloadend = (loadEvent) => {
+                this.setState({ image: loadEvent.target.result });
             }
             fr.readAsDataURL(files[0]);
         }

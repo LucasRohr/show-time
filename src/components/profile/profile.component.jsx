@@ -5,6 +5,7 @@ import Slide from '@material-ui/core/Slide';
 import { ButtonCommon } from '../button-common/button-common.component';
 import history from '../../history';
 import { ReactComponent as UserIcon } from '../../assets/icons/user-circle-solid.svg';
+import { UpdateProfile } from '../update-profile/update-profile.component';
 
 export class Profile extends React.PureComponent {
 
@@ -22,7 +23,8 @@ export class Profile extends React.PureComponent {
             year: "",
             // ======================
             avatar: null,
-            publications: 13
+            publications: 13,
+            isUpdateProfileModalOpen: false
         };
     }
 
@@ -39,16 +41,17 @@ export class Profile extends React.PureComponent {
         history.push('login');
     }
 
-    renderUpdateProfile = () => {
-        return (
-            <div></div>
-        );
+    handleIsUpdateProfileModalOpen = () => {
+        this.setState( prevState => ({
+                isUpdateProfileModalOpen: !prevState.isUpdateProfileModalOpen
+            })
+        )
     }
 
     render() {
         return (
             <Modal className="profile-modal" open={this.props.open} onClose={this.props.onClose} >
-                <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit>
+                <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit >
                     <div className="profile-modal-content" >
 
                         <div className="profile-header" >
@@ -74,19 +77,21 @@ export class Profile extends React.PureComponent {
 
                         </div>
 
-                        <div className="profile-info-container" >
-                            <p className="profile-info-label" > Nome completo </p>
-                            <p className="profile-info" > {this.state.fullName} </p>
-                        </div>
+                        <div className="profile-user-info-container" >
+                            <div className="profile-info-container" >
+                                <p className="profile-info-label" > Nome completo </p>
+                                <p className="profile-info" > {this.state.fullName} </p>
+                            </div>
 
-                        <div className="profile-info-container" >
-                            <p className="profile-info-label" > Data de nascimento </p>
-                            <p className="profile-info" > {this.formatBirthday(this.state.birthday)} </p>
-                        </div>
+                            <div className="profile-info-container" >
+                                <p className="profile-info-label" > Data de nascimento </p>
+                                <p className="profile-info" > {this.formatBirthday(this.state.birthday)} </p>
+                            </div>
 
-                        <div className="profile-info-container" >
-                            <p className="profile-info-label" > Publicações </p>
-                            <p className="profile-info" > {this.state.publications} </p>
+                            <div className="profile-info-container" >
+                                <p className="profile-info-label" > Publicações </p>
+                                <p className="profile-info" > {this.state.publications} </p>
+                            </div>
                         </div>
 
                         <div className="go-to-update-button-container" >
@@ -94,13 +99,19 @@ export class Profile extends React.PureComponent {
                                 buttonHeight="90%"
                                 buttonWidth="35%"
                                 buttonPadding="0%"
-                                onButtonClick={this.renderUpdateProfile}
+                                onButtonClick={this.handleIsUpdateProfileModalOpen}
                             >
                                 Atualizar perfil
                             </ButtonCommon>
                         </div>
 
+                        <UpdateProfile
+                            open={this.state.isUpdateProfileModalOpen}
+                            onClose={this.handleIsUpdateProfileModalOpen}
+                        />
+                        
                     </div>
+                    
                 </Slide>
             </Modal>
         );
