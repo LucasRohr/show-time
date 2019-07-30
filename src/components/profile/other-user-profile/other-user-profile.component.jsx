@@ -7,6 +7,7 @@ import { CreateRecModal } from '../../recommendation-modal/create-rec-modal.comp
 import { ReactComponent as UserIcon } from '../../../assets/icons/user-circle-solid.svg';
 import { ReactComponent as AddFriendIcon } from '../../../assets/icons/user-plus-solid.svg';
 import { ReactComponent as PaperPlaneIcon } from '../../../assets/icons/paper-plane-regular.svg';
+import { ReactComponent as BackArrow } from '../../../assets/icons/arrow-left-solid.svg';
 
 export class OtherUserProfile extends React.PureComponent {
 
@@ -15,6 +16,7 @@ export class OtherUserProfile extends React.PureComponent {
         this.state = {
             otherUserAvatar: '',
             otherUserUsername: 'zezinho capixaba',
+            otherUserFullName: 'ze da kakakakaka',
             otherUserBirthday: new Date(),
             // === DATE FORMATING ===
             day: "",
@@ -44,70 +46,74 @@ export class OtherUserProfile extends React.PureComponent {
         }));
     }
 
+    sendFriendInvite = () => {
+        
+    }
+
     render() {
         return (
-            <Modal className="other-user-profile-modal" open={this.props.open} onClose={this.props.onClose} >
-                <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit >
-                    <div className="other-user-profile-modal-content" >
 
-                        <div className="other-user-profile-header" >
-                            <div className="other-user-avatar-username-container" >
-                                {
-                                    this.state.avatar ?
-                                        <img className="other-user-profile-avatar" src={ this.state.avatar } />
-                                    :
-                                        <UserIcon className="other-user-profile-avatar-icon" />
-                                }
-                                <p className="other-user-profile-username" > {this.state.username} </p>
-                            </div>
+            <div className="other-user-profile-modal-content" >
 
-                            <ButtonCommon
-                                buttonHeight="90%"
-                                buttonWidth="15%"
-                                buttonPadding="0%"
-                                onButtonClick={this.logout}
-                            >
-                                Enviar recomendação
-                            </ButtonCommon>
-                        </div>
-
-                        <div className="other-user-profile-user-info-container" >
-                            <div className="other-user-profile-info-container" >
-                                <p className="other-user-profile-info-label" > Nome completo </p>
-                                <p className="other-user-profile-info" > {this.state.fullName} </p>
-                            </div>
-
-                            <div className="other-user-profile-info-container" >
-                                <p className="other-user-profile-info-label" > Data de nascimento </p>
-                                <p className="other-user-profile-info" > {this.formatBirthday(this.state.otherUserBirthday)} </p>
-                            </div>
-
-                            <div className="other-user-profile-info-container" >
-                                <p className="other-user-profile-info-label" > Publicações </p>
-                                <p className="other-user-profile-info" > {this.state.publications} </p>
-                            </div>
-                        </div>
-
-                        <div className="other-user-action-button-container" >
-                            <button className="other-user-action-button">
-                                {
-                                    this.state.isFriend ?
-                                        <PaperPlaneIcon className="send-recommendation-icon" />
-                                    :
-                                        <AddFriendIcon className="add-user-icon" />
-                                }
-                            </button>
-                        </div>
-
-                        <CreateRecModal
-                            open={this.state.isRecommendationModalOpen}
-                            onClose={this.handleIsRecommendationModalOpen}
-                        />
-                        
+                <div className="other-user-profile-header" >
+                    <div className="other-user-avatar-username-container" >
+                        {
+                            this.state.otherUserAvatar ?
+                                <img className="other-user-profile-avatar" src={ this.state.otherUserAvatar } />
+                            :
+                                <UserIcon className="other-user-profile-avatar-icon" />
+                        }
+                        <p className="other-user-profile-username" > {this.state.otherUserUsername} </p>
                     </div>
+
+                    <ButtonCommon
+                        buttonHeight="90%"
+                        buttonWidth="20%"
+                        buttonPadding="0%"
+                        onButtonClick={this.props.handleOtherUserProfile}
+                    >
+                        <div className="other-user-back-button-content" >
+                            <BackArrow className="other-user-back-button-icon" />
+                            <p className="other-user-back-button-title" > Voltar </p>
+                        </div>
+                    </ButtonCommon>
+                </div>
+
+                <div className="other-user-profile-user-info-container" >
+                    <div className="other-user-profile-info-container" >
+                        <p className="other-user-profile-info-label" > Nome completo </p>
+                        <p className="other-user-profile-info" > {this.state.otherUserFullName} </p>
+                    </div>
+
+                    <div className="other-user-profile-info-container" >
+                        <p className="other-user-profile-info-label" > Data de nascimento </p>
+                        <p className="other-user-profile-info" > {this.formatBirthday(this.state.otherUserBirthday)} </p>
+                    </div>
+
+                    <div className="other-user-profile-info-container" >
+                        <p className="other-user-profile-info-label" > Publicações </p>
+                        <p className="other-user-profile-info" > {this.state.otherUserPublications} </p>
+                    </div>
+                </div>
+
+                <div className="other-user-action-button-container" >
+                    <button className="other-user-action-button" onClick={ this.state.isFriend ? this.handleIsRecommendationModalOpen : this.sendFriendInvite } >
+                        {
+                            this.state.isFriend ?
+                                <PaperPlaneIcon className="send-recommendation-icon" />
+                            :
+                                <AddFriendIcon className="add-user-icon" />
+                        }
+                    </button>
+                </div>
+
+                <CreateRecModal
+                    open={this.state.isRecommendationModalOpen}
+                    onClose={this.handleIsRecommendationModalOpen}
+                />
+                
+            </div>
                     
-                </Slide>
-            </Modal>
         );
     }
 

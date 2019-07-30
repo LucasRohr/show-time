@@ -9,6 +9,7 @@ export class SearchUserResult extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
+            userId: 1,
             isOtherUserProfileOpen: false
         }
     }
@@ -26,7 +27,7 @@ export class SearchUserResult extends React.PureComponent {
     render() {
         return (
             <div className="user-search-result" >
-                <div className="user-info" onClick={this.handleIsOtherUserProfileOpen} >
+                <div className="user-info" onClick={this.props.openOtherUserProfile} >
                     {
                         this.props.userAvatar ?
                             <img className="user-avatar" src={ this.props.userAvatar } />
@@ -38,10 +39,6 @@ export class SearchUserResult extends React.PureComponent {
                 </div>
 
                 <AddUser className="search-add-user-icon" onClick={this.sendFriendInvite} />
-
-                <OtherUserProfile open={this.state.isOtherUserProfileOpen}
-                    onClose={this.handleIsOtherUserProfileOpen}
-                />
 
             </div>
         );
