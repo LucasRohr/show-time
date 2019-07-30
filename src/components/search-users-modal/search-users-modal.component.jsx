@@ -66,7 +66,7 @@ export class SearchUsersModal extends React.PureComponent {
                             userId={userSearch.userId}
                             username={userSearch.username}
                             userAvatar={userSearch.userAvatar}
-                            openOtherUserProfile={this.openOtherUserProfile}
+                            openOtherUserProfile={() => { this.openOtherUserProfile(userSearch.userId) }}
                         />
                     )
                 }
@@ -110,7 +110,9 @@ export class SearchUsersModal extends React.PureComponent {
 
                                     {
                                         this.state.searchUsersResults.length > 0 ?
-                                            this.renderUsersFromSearch()
+                                            <div className="users-result-container" >
+                                                { this.renderUsersFromSearch() }
+                                            </div>
                                         :
                                             this.renderNoSearchMadeMessage()
                                     }
