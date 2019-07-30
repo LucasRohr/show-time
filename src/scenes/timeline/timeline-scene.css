@@ -207,5 +207,5 @@
 .recommendation-icon {
     width: 60%;
     height: 80%;
-    fill: var(--primary);
+    fill: var(--background);
 }

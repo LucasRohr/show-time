@@ -28,7 +28,7 @@ export class UpdatePassword extends React.PureComponent {
                     >
                         <div className="update-back-button-content" >
                             <BackArrow className="update-back-button-icon" />
-                            <p className="update-back-button-title" > Mudar senha </p>
+                            <p className="update-back-button-title" > Voltar </p>
                         </div>
                     </ButtonCommon>
 
