@@ -3,16 +3,16 @@
     height: 15%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 .rec-item-user-info {
-    width: 45%;
+    width: 35%;
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -24,9 +24,8 @@
 }
 
 .rec-item-user-avatar-icon {
-    width: 15%;
-    height: 90%;
-    transform: scale(1, 1);
+    height: 60%;
+    width: 40%;
     fill: var(--primary);
 }
 

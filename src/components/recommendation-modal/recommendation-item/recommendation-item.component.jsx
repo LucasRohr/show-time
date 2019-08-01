@@ -1,6 +1,6 @@
 import React from 'react';
 import './recommendation-item.component.css';
-import { ReactComponent as UserIcon } from '../../assets/icons/user-circle-solid.svg';
+import { ReactComponent as UserIcon } from '../../../assets/icons/user-circle-solid.svg';
 
 export class RecommendationItem extends React.PureComponent {
 
@@ -20,10 +20,23 @@ export class RecommendationItem extends React.PureComponent {
                             <UserIcon className="rec-item-user-avatar-icon" />
                     }
 
-                    <p className="rec-item-username" > {this.props.username} </p>
+                    <p className="rec-item-username" > {
+
+                        this.props.username.length <= 11 ?
+                            this.props.username
+                        :
+                            `${this.props.username.substring(0, 11)}...`
+
+                    } </p>
                 </div>
 
-                <p className="rec-item-recommendation-title" > {this.props.recommendationTitle} </p>
+                <p className="rec-item-recommendation-title" > {
+                    this.props.recommendationTitle.length <= 20 ?
+                        this.props.recommendationTitle
+                    :
+                        `${this.props.recommendationTitle.substring(0, 21)}...`
+
+                } </p>
 
             </div>
         );

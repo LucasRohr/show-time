@@ -13,6 +13,7 @@ import { CreatePubModal } from '../../components/create-pub-modal/create-pub-mod
 import { CreateRecModal } from '../../components/create-rec-modal/create-rec-modal.component';
 import { SearchUsersModal } from '../../components/search-users-modal/search-users-modal.component';
 import { Profile } from '../../components/profile/profile.component';
+import { RecommendationHistoryModal } from '../../components/recommendation-modal/recommendation-history-modal.component';
 
 export class TimelineScene extends React.PureComponent {
 
@@ -180,7 +181,7 @@ export class TimelineScene extends React.PureComponent {
                         onClose={this.handleSearchUsersModal}
                     />
                         
-                    <CreateRecModal open={this.state.isRecModalOpen}
+                    <RecommendationHistoryModal open={this.state.isRecModalOpen}
                         onClose={this.handleRecModal}
                     />
 

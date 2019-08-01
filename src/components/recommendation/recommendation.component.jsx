@@ -6,7 +6,7 @@ import Modal from '@material-ui/core/Modal';
 import Slide from '@material-ui/core/Slide';
 import { ReactComponent as UserIcon } from '../../assets/icons/user-circle-solid.svg';
 
-export class Recommendation extends React.PureComponent {
+export class RecommendationModal extends React.PureComponent {
 
     constructor(props) {
         super(props);

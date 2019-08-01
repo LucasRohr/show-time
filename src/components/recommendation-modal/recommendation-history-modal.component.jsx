@@ -5,6 +5,9 @@ import Slide from '@material-ui/core/Slide';
 import { ButtonCommon } from '../button-common/button-common.component';
 import { Recommendation } from '../../models/recommendation';
 import { RecommendationItem } from './recommendation-item/recommendation-item.component';
+import { CreateRecModal } from '../create-rec-modal/create-rec-modal.component';
+import { RecommendationModal } from '../recommendation/recommendation.component.jsx';
+import { colors } from '../../style/colors';
 
 export class RecommendationHistoryModal extends React.PureComponent {
 
@@ -12,8 +15,16 @@ export class RecommendationHistoryModal extends React.PureComponent {
         super(props);
         this.state = {
             isCreateRecModalOpen: false,
-            isSentRecommendationsListSelected: true,
+            isReceivedRecommendationsListSelected: true,
             sentRecommendations: [
+                new Recommendation(
+                    1, 1, "jao", "", 2, "kleberzinho", "", new Date(), "ve TEOTFW, mui bueno", true,
+                    "The End of The Fucking World", true, "mt bom mano, tu olha rapidinho, eu adorei"
+                ),
+                new Recommendation(
+                    1, 1, "jao", "", 2, "kleberzinho", "", new Date(), "ve TEOTFW, mui bueno", true,
+                    "The End of The Fucking World", true, "mt bom mano, tu olha rapidinho, eu adorei"
+                ),
                 new Recommendation(
                     1, 1, "jao", "", 2, "kleberzinho", "", new Date(), "ve TEOTFW, mui bueno", true,
                     "The End of The Fucking World", true, "mt bom mano, tu olha rapidinho, eu adorei"
@@ -26,7 +37,7 @@ export class RecommendationHistoryModal extends React.PureComponent {
                 )
             ],
             isRecommendationModalOpen: false,
-            selectedRecommendation: null
+            selectedRecommendation: new Recommendation(0, 0, "", "", 1, "", "", new Date(), "", false, "", false, "")
         }
     }
 
@@ -37,47 +48,58 @@ export class RecommendationHistoryModal extends React.PureComponent {
     }
 
     renderSentRecommendationsList = () => {
-        this.state.sentRecommendations.map(
-            (sentRecommendationItem, key) => {
-                <RecommendationItem
-                    key={key}
-                    userAvatar={sentRecommendationItem.recipientAvatar}
-                    username={sentRecommendationItem.recipientUsername}
-                    openRecommendation={() => { this.openRecommendationModal(receivedRecommendationItem) }}
-                />
-            }
+        return (
+            this.state.sentRecommendations.map(
+                (sentRecommendationItem, key) => {
+                    return (
+                        <RecommendationItem
+                            key={key}
+                            userAvatar={sentRecommendationItem.recipientAvatar}
+                            username={sentRecommendationItem.recipientUsername}
+                            recommendationTitle={sentRecommendationItem.title}
+                            openRecommendation={() => { this.openRecommendationModal(sentRecommendationItem) }}
+                        />
+                    )
+                }
+            )
         )
     }
 
     renderReceivedRecommendationsList = () => {
-        this.state.receivedRecommendations.map(
-            (receivedRecommendationItem, key) => {
-                <RecommendationItem
-                    key={key}
-                    userAvatar={receivedRecommendationItem.recipientAvatar}
-                    username={receivedRecommendationItem.recipientUsername}
-                    openRecommendation={() => { this.openRecommendationModal(receivedRecommendationItem) }}
-                />
-            }
+        return (
+            this.state.receivedRecommendations.map(
+                (receivedRecommendationItem, key) => {
+                    return (
+                        <RecommendationItem
+                            key={key}
+                            userAvatar={receivedRecommendationItem.recipientAvatar}
+                            username={receivedRecommendationItem.recipientUsername}
+                            recommendationTitle={receivedRecommendationItem.title}
+                            openRecommendation={() => { this.openRecommendationModal(receivedRecommendationItem) }}
+                        />
+                    )
+                }
+            )
         )
     }
 
-    handleIsRecommendationOpen = () => {
+    handleIsRecommendationModalOpen = () => {
         this.setState( prevState => ({
             isRecommendationModalOpen: !prevState.isRecommendationModalOpen
         }));
     }
 
     openRecommendationModal = (recommendation) => {
-        this.setState({
-            selectedRecommendation: new Recommendation(
-                recommendation.id, recommendation.authorId, recommendation.authorUsername,
-                recommendation.authorAvatar, recommendation.recipientId, recommendation.recipientUsername,
-                recommendation.recipientAvatar, recommendation.datetime, recommendation.title,
-                recommendation.isShow, recommendation.showName, recommendation.hasInNetflix, recommendation.review
-            )
-        })
-        this.handleIsRecommendationOpen();
+        this.setState({ selectedRecommendation: recommendation });
+        this.handleIsRecommendationModalOpen();
+    }
+
+    setIsReceivedRecommendationsListSelectedTrue = () => {
+        this.setState({ isReceivedRecommendationsListSelected: true });
+    }
+
+    setIsReceivedRecommendationsListSelectedFalse = () => {
+        this.setState({ isReceivedRecommendationsListSelected: false });
     }
 
     render() {
@@ -86,48 +108,59 @@ export class RecommendationHistoryModal extends React.PureComponent {
                 <Slide direction="up" in={this.props.open} mountOnEnter unmountOnExit >
 
                     <div className="rec-hist-modal-content" >
+
                         <div className="rec-hist-header" >
                             <p className="rec-hist-title" > Recomendações </p>
+
+                            <ButtonCommon
+                                buttonHeight="90%"
+                                buttonWidth="50%"
+                                buttonPadding="0%"
+                                onButtonClick={this.handleIsCreateRecModalOpen}
+                            >
+                                Enviar recomendação
+                            </ButtonCommon>
                         </div>
 
-                        <ButtonCommon
-                            buttonHeight="90%"
-                            buttonWidth="40%"
-                            buttonPadding="0%"
-                            onButtonClick={this.handleIsCreateRecModalOpen}
-                        >
-                            Enviar recomendação
-                        </ButtonCommon>
+                        <div className="rec-hist-options" >
+                            <button className="rec-hist-option-button"
+                                style={{ color: this.state.isReceivedRecommendationsListSelected ? colors.primary : colors.grey }}
+                                onClick={this.setIsReceivedRecommendationsListSelectedTrue} >
+                                Recebidas
+                            </button>
+
+                            <button className="rec-hist-option-button"
+                                style={{ color: this.state.isReceivedRecommendationsListSelected ? colors.grey : colors.primary }}
+                                onClick={this.setIsReceivedRecommendationsListSelectedFalse} >
+                                Enviadas
+                            </button>
+                        </div>
+
+                        {
+                            this.state.isReceivedRecommendationsListSelected ?
+                                this.renderReceivedRecommendationsList()
+                            :
+                                this.renderSentRecommendationsList()
+                        }
+
+                        <CreateRecModal
+                            open={this.state.isCreateRecModalOpen}
+                            onClose={this.handleIsCreateRecModalOpen}
+                        />
+
+                        <RecommendationModal
+                            open={this.state.isRecommendationModalOpen}
+                            onClose={this.handleIsRecommendationModalOpen}
+                            senderAvatar={this.state.selectedRecommendation.authorAvatar}
+                            senderUsername={this.state.selectedRecommendation.authorUsername}
+                            title={this.state.selectedRecommendation.title}
+                            isShow={this.state.selectedRecommendation.isShow}
+                            showName={this.state.selectedRecommendation.showName}
+                            hasInNetflix={this.state.selectedRecommendation.hasInNetflix}
+                            recommendationReview={this.state.selectedRecommendation.review}
+                        />
+
                     </div>
-
-                    <div className="rec-hist-options" >
-                        <button className="rec-hist-sent-recs" >
-                            Enviadas
-                        </button>
-
-                        <button className="rec-hist-received-recs" >
-                            Recebidas
-                        </button>
-                    </div>
-
-                    {
-                        this.state.isSentRecommendationsListSelected ?
-                            this.renderSentRecommendationsList()
-                        :
-                            this.renderReceivedRecommendationsList()
-                    }
-
-                    <Recommendation
-                        open={this.state.isRecommendationModalOpen}
-                        onClose={this.handleIsRecommendationOpen}
-                        senderAvatar={this.state.selectedRecommendation.authorAvatar}
-                        senderUsername={this.state.selectedRecommendation.authorUsername}
-                        title={this.state.selectedRecommendation.title}
-                        isShow={this.state.selectedRecommendation.isShow}
-                        showName={this.state.selectedRecommendation.showName}
-                        hasInNetflix={this.state.selectedRecommendation.hasInNetflix}
-                        recommendationReview={this.state.selectedRecommendation.review}
-                    />
 
                 </Slide>
             </Modal>
