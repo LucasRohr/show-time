@@ -3,7 +3,7 @@ import './other-user-profile.component.css';
 import Modal from '@material-ui/core/Modal';
 import Slide from '@material-ui/core/Slide';
 import { ButtonCommon } from '../../button-common/button-common.component';
-import { CreateRecModal } from '../../recommendation-modal/create-rec-modal.component.jsx';
+import { CreateRecModal } from '../../create-rec-modal/create-rec-modal.component.jsx';
 import { ReactComponent as UserIcon } from '../../../assets/icons/user-circle-solid.svg';
 import { ReactComponent as AddFriendIcon } from '../../../assets/icons/user-plus-solid.svg';
 import { ReactComponent as PaperPlaneIcon } from '../../../assets/icons/paper-plane-regular.svg';
