@@ -72,8 +72,8 @@ export class RecommendationHistoryModal extends React.PureComponent {
                     return (
                         <RecommendationItem
                             key={key}
-                            userAvatar={receivedRecommendationItem.recipientAvatar}
-                            username={receivedRecommendationItem.recipientUsername}
+                            userAvatar={receivedRecommendationItem.authorAvatar}
+                            username={receivedRecommendationItem.authorUsername}
                             recommendationTitle={receivedRecommendationItem.title}
                             openRecommendation={() => { this.openRecommendationModal(receivedRecommendationItem) }}
                         />

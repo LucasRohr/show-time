@@ -10,7 +10,7 @@ export class RecommendationItem extends React.PureComponent {
 
     render() {
         return (
-            <div className="recommendation-item" >
+            <div className="recommendation-item" onClick={this.props.openRecommendation} >
 
                 <div className="rec-item-user-info" >
                     {
