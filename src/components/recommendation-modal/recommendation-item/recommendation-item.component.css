@@ -1,0 +1,43 @@
+.recommendation-item {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rec-item-user-info {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rec-item-user-avatar {
+    width: 20%;
+    height: 100%;
+    transform: scale(0.8, 0.8);
+    border-radius: 120px;
+}
+
+.rec-item-user-avatar-icon {
+    width: 15%;
+    height: 90%;
+    transform: scale(1, 1);
+    fill: var(--primary);
+}
+
+.rec-item-username {
+    font-family: Righteous;
+    color: var(--black);
+    font-size: 1.3em;
+}
+
+.rec-item-recommendation-title {
+    font-family: Righteous;
+    color: var(--primary);
+    font-size: 1.3em;
+}
